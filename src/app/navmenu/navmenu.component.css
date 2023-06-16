@@ -1,0 +1,37 @@
+.nav-main{
+    width: 100%;
+    height: 46px;
+    background: #f8f7fa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    line-height: 46px;
+    
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+ul li{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+ul li a {
+    color: black;
+}
+
+.home-icon{
+    margin-right: 5px;
+    padding-left: 3px;
+}
