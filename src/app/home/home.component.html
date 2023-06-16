@@ -1,0 +1,17 @@
+
+        <ul>
+            <li *ngFor="let food of foods">
+                <a>
+                    <img src="{{food.imageUrl}}" alt="food image">
+                </a>
+                <div class="content">
+                    <div class="name">
+                        <p> {{food.name}}</p>
+                    </div>
+                </div>
+                <div class="product-button">
+                    <button class="product-button-item">Đặt hàng</button>
+                    <button class="product-button-item dh">Xem chi tiết</button>
+                </div>
+            </li>
+        </ul>
