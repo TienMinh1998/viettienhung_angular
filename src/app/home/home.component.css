@@ -9,7 +9,10 @@
     width: 70%;
 }
 
-ul{
+li a:hover{
+    opacity: 0.9;
+}
+.list-product{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -17,45 +20,33 @@ ul{
     list-style-type: none;
     padding: 0;
 }
-ul li a{
-    height: 20rem;
-    width: 20rem;
-    border: 1px solid wheat;
-    border-radius: 1rem;
-    margin: 0.5rem;
+
+.product-item{
+    padding: 5px;
+    width: 20%;
+    display: block;
+}
+
+.bottom-btn{
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: #e72929;
+   justify-content: space-between;
 }
 
-li a:hover{
-    opacity: 0.9;
+.detail-btn{
+   border: 1px solid #844205;
+   border-radius: 0.5rem;
+   margin: 1%;
+   width: 30%;
+   color: #844205;
 }
 
-.product-button{
-    display: flex;
-    justify-content: space-between
-}
-
-.product-button-item{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin: 0 10px;
-    border-radius: 5px;
-}
-.dh{
-    background-color: white;
-    color: black;
-    border: 2px solid black;
+.detail-btn-contract{
     font-weight: bold;
+    font-size: 16px;
+    width: 60%;
 }
 
+.detail-btn-contract:hover, .detail-btn:hover{
+    background-color:  #844205;
+    color: white;
+}

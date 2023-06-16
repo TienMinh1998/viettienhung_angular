@@ -1,17 +1,36 @@
 
-        <ul>
-            <li *ngFor="let food of foods">
-                <a>
-                    <img src="{{food.imageUrl}}" alt="food image">
-                </a>
-                <div class="content">
-                    <div class="name">
-                        <p> {{food.name}}</p>
-                    </div>
-                </div>
-                <div class="product-button">
-                    <button class="product-button-item">Đặt hàng</button>
-                    <button class="product-button-item dh">Xem chi tiết</button>
-                </div>
-            </li>
-        </ul>
+<div>
+    <h2>  NẮP HỐ GA</h2>
+</div>
+<div class="list-product">
+    <div *ngFor="let food of foods" class="product-item">
+            <a>
+                <img width="100%" height="100%" src="{{food.imageUrl}}" alt="food image">
+            </a>
+            <div>
+                {{food.name}}
+            </div>
+            <div class="bottom-btn">
+                <button class="btn btn-outline-warning detail-btn-contract">Liên hệ đặt hàng</button>
+                <button class="btn btn-light detail-btn">Chi tiết</button>
+            </div>
+    </div>
+</div>
+
+<div>
+    <h2> SONG CHẮN RÁC</h2>
+</div>
+<div class="list-product">
+    <div *ngFor="let food of foods" class="product-item">
+            <a>
+                <img width="100%" height="100%" src="{{food.imageUrl}}" alt="food image">
+            </a>
+            <div>
+                {{food.name}}
+            </div>
+            <div class="bottom-btn">
+                <button class="btn btn-outline-warning detail-btn-contract">Liên hệ đặt hàng</button>
+                <button class="btn btn-light detail-btn">Chi tiết</button>
+            </div>
+    </div>
+</div>

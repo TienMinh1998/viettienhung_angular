@@ -76,7 +76,29 @@ export class FoodService {
         imageUrl: '/assets/food-6.jpg',
         tags:['fastFood','Pizza','lunch'],
         cookTime : '40-50'
-      }
+      },
+      {
+        id:7,
+        name:'Nắp hố ga 2',
+        price : 10,
+        favorite: false,
+        origin:['italy'],
+        star : 4.5,
+        imageUrl: '/assets/food-7.jpg',
+        tags:['fastFood','Pizza','lunch'],
+        cookTime : '40-50'
+      },
+      {
+        id:8,
+        name:'Nắp hố ga 2',
+        price : 10,
+        favorite: false,
+        origin:['italy'],
+        star : 4.5,
+        imageUrl: '/assets/food-8.jpg',
+        tags:['fastFood','Pizza','lunch'],
+        cookTime : '40-50'
+      },
     ];
   }
 }

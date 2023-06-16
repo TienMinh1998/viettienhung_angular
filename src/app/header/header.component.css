@@ -35,7 +35,7 @@
 }
 
 .top-menu-right{
-    width: 65%;
+    width: 75%;
     display: block;
 }
 .top-menu-right-top{
@@ -46,6 +46,8 @@
 }
 
 .top-menu-right-top-item{
+    display: flex;
+    align-items: center;
     font-weight: bold;
     font-size: 16px;
     margin: 0 10px;
@@ -99,4 +101,16 @@
   
   }
 
+.search-icon{
+    position: relative;
+    top: -60%;
+    left: 100%;
+    background-color: #844205;
+    border:none;
+    font-weight: bold;
+}
 
+.search-icon:hover{
+   background-color: #db6900;
+   color: whitesmoke
+}
