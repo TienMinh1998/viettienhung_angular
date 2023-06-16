@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from '../services/food/food.service';
 import { Foods } from '../shared/models/food';
+import { PostService } from '../services/post/post.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,14 @@ import { Foods } from '../shared/models/food';
 })
 export class HomeComponent implements OnInit {
   foods:Foods[] = [];
-
-  constructor(private fs:FoodService){}
+  subject:any;
+  constructor(private fs:FoodService, private postService:PostService){}
 
   ngOnInit(): void {
    this.foods = this.fs.getAll(); // Call service
+    this.postService.GetList().subscribe(res=>{
+      console.log(res);
+    })
   }
 
 }

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +9,12 @@ import { Injectable } from '@angular/core';
 export class PostService {
 
   constructor(
-    private http: HttpClient
+    private http:HttpClient
   ) { }
+
+  // các phương thức khác
+
+  GetList():Observable<any> {
+    return this.http.get<any>('https://jsonplaceholder.typicode.com/posts')
+  }
 }
