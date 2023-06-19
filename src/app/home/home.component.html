@@ -1,36 +1,24 @@
 
-<div>
-    <h2>NẮP HỐ GA</h2>
+<div class="intro">
+    @viettienhung-limitedCompany
+    <div class="text-intro">
+        IELTS 8.0 INTO STYLE
+    </div>
+    <div class="sub-text-intro">
+        For days when you need kicks thant can keep up with your every more. #ChaseTheDay
+    </div>
+    <button class="btn btn-primary vth-btn">Learn</button>
+    <button class="btn btn-primary vth-btn">Detail</button>
 </div>
 <div class="list-product">
-    <div *ngFor="let food of foods" class="product-item">
-            <a>
-                <img width="100%" height="100%" src="{{food.imageUrl}}" alt="food image">
+    <div *ngFor="let food of posts" class="product-item">
+            <a class="image">
+                <img class="image_img" width="100%" height="100%" src="{{food.image}}" alt="food image">
             </a>
-            <div>
-                {{food.name}}
+            <div class="title">
+                {{food.title}}
             </div>
-            <div class="bottom-btn">
-                <button class="btn btn-outline-warning detail-btn-contract">Liên hệ đặt hàng</button>
-                <button class="btn btn-light detail-btn">Chi tiết</button>
-            </div>
+            <button class="btn btn-outline-secondary">Detail</button>
     </div>
 </div>
 
-<div>
-    <h2> SONG CHẮN RÁC</h2>
-</div>
-<div class="list-product">
-    <div *ngFor="let food of foods" class="product-item">
-            <a>
-                <img width="100%" height="100%" src="{{food.imageUrl}}" alt="food image">
-            </a>
-            <div>
-                {{food.name}}
-            </div>
-            <div class="bottom-btn">
-                <button class="btn btn-outline-warning detail-btn-contract">Liên hệ đặt hàng</button>
-                <button class="btn btn-light detail-btn">Chi tiết</button>
-            </div>
-    </div>
-</div>

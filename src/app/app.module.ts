@@ -6,23 +6,28 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NavmenuComponent } from './navmenu/navmenu.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import { LoginComponent } from './login/login.component';
+import { MainAppComponent } from './main-app/main-app.component';
+import { FormsModule } from '@angular/forms';
+import { PostComponent } from './post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     NavbarComponent,
-    NavmenuComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    MainAppComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
