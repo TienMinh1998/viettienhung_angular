@@ -4,6 +4,7 @@ import { Foods } from '../shared/models/food';
 import { PostService } from '../services/post/post.service';
 import { KEY_TOKEN } from '../config/apiConfig';
 import { PostModel } from '../shared/models/postModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,9 @@ import { PostModel } from '../shared/models/postModel';
 export class HomeComponent implements OnInit {
   posts:PostModel[] = [];
   subject:any;
-  constructor(private fs:FoodService, private postService:PostService){}
+  constructor(private fs:FoodService, private postService:PostService, private router:Router){}
 
   ngOnInit(): void {
-
     var data1 = {
       pageSize: 24,
       pageNumber: 1,
@@ -24,12 +24,6 @@ export class HomeComponent implements OnInit {
   }
   var localToken =  this.getTokenFromLocalStorage()
    this.postData(String(localToken),data1);
-    this.postService.GetList().subscribe(res=>{
-      console.log(res.data.items);
-    })
-    var result = this.postData(String(localToken),data1)
-    console.log("data list : ")
-    console.log(result)
   }
  
   getTokenFromLocalStorage(): string | null {
@@ -39,9 +33,14 @@ export class HomeComponent implements OnInit {
   postData(token:string,data:any){
     const url = 'https://viettienhung.com/reading/search';
      this.postService.postDataWithToken(url,data,token).subscribe((res:any)=>{
-       this.posts = res.data.items
+       this.posts = res.data.items;
+       console.log('call APi')
     })
   
   }
-
+  
+  GoDetail(id:number){
+      this.router.navigate(['/home', id])
+      console.log(id)
+  }
 }

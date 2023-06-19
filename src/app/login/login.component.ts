@@ -23,7 +23,7 @@ export class LoginComponent {
       userName : this.userName,
       password : this.passWord
     }
-    var response = this.authService.Login(dataJson).subscribe(res=>{
+    this.authService.Login(dataJson).subscribe(res=>{
       var status = res.status;
       var token = res.data.token;
       if (status==200) {

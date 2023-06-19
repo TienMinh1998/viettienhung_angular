@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
-import {API_BASE_URL} from 'src/app/config/apiConfig'
+import {API_BASE_URL, KEY_TOKEN} from 'src/app/config/apiConfig'
 @Injectable({
   providedIn: 'root'
 })
@@ -36,5 +36,18 @@ export class PostService {
     });
 
     return this.http.post(url, data, { headers });
+  }
+  
+  API_get(url:string,token:string):Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<any>(url,{headers})
+  }
+
+  getTokenFromLocalStorage(): string | null {
+    return localStorage.getItem(`${KEY_TOKEN}`);
   }
 }

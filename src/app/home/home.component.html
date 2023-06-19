@@ -11,14 +11,14 @@
     <button class="btn btn-primary vth-btn">Detail</button>
 </div>
 <div class="list-product">
-    <div *ngFor="let food of posts" class="product-item">
+    <div *ngFor="let post of posts" class="product-item">
             <a class="image">
-                <img class="image_img" width="100%" height="100%" src="{{food.image}}" alt="food image">
+                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image">
             </a>
             <div class="title">
-                {{food.title}}
+                {{post.title}}
             </div>
-            <button class="btn btn-outline-secondary">Detail</button>
+            <button class="btn btn-outline-secondary" (click)="GoDetail(post.id)">Detail</button>
     </div>
 </div>
 

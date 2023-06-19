@@ -4,13 +4,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { MainAppComponent } from './main-app/main-app.component';
+import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainAppComponent, // Use AppLayoutComponent for all routes except login
     children: [
-      {path:"", component:HomeComponent}
+      {path:"", component:HomeComponent},
+      {path:"home/:id",component:DetailComponent}
     ]
   },
   {
