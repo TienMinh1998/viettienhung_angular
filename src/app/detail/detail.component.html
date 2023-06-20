@@ -27,7 +27,9 @@
     </style>
 
 
-<div  class="main-post">
+<div *ngIf="isloading">Đây là loading</div>
+
+<div  class="main-post" *ngIf="!isloading">
     <div class="title"> 
         {{post.title}}
         <button class="btn btn-primary btn-sm btn-margin" (click)="displayEditer()">

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { PostService } from '../services/post/post.service';
 import { API_BASE_URL } from '../config/apiConfig';
@@ -15,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./detail.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class DetailComponent {
+export class DetailComponent implements OnInit {
   id :number = 0;
   post:PostModel = new PostModel();
   phrases :phraseModel[] = [];
@@ -81,7 +81,7 @@ export class DetailComponent {
 binDataPost !:string;
 binDataVietName !:string;
 isEditterVisible = false;
-isloading = true;
+isloading = false;
 
   constructor(private route:ActivatedRoute,
     private postService:PostService,
@@ -90,20 +90,23 @@ isloading = true;
     public sanitizer: DomSanitizer
     ){
     this.id =  Number(this.route.snapshot.paramMap.get('id'));
-    this.today = new Date();
-  
-  this.GetPostDetail();
-  this.GetPhrase();
-  this.isloading = false;
+  }
+  ngOnInit(): void {
+   this.GetPostDetail();
+   this.GetPhrase();
   }
   
   GetPostDetail(){
+    this.isloading = true;
      const token = this.postService.getTokenFromLocalStorage();
      this.postService.API_get(`${API_BASE_URL}/reading/${this.id}`,String(token)).subscribe(res=>{
-      this.post = res.data;
-      this.binDataPost = res.data.content;
-      this.someHtmlCode = this.sanitizer.bypassSecurityTrustHtml(res.data.content) as string;
-      this.binDataVietName = res.data.translate;
+      if(res && res.status == 200) {
+        this.post = res.data;
+        this.binDataPost = res.data.content;
+        this.someHtmlCode = this.sanitizer.bypassSecurityTrustHtml(res.data.content) as string;
+        this.binDataVietName = res.data.translate;
+        this.isloading = false;
+      }
      });
      console.log(this.day)
      console.log(this.dayOfpost)
