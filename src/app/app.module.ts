@@ -13,6 +13,14 @@ import { MainAppComponent } from './main-app/main-app.component';
 import { FormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { DetailComponent } from './detail/detail.component';
+import { NgxSummernoteModule } from 'ngx-summernote';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +31,34 @@ import { DetailComponent } from './detail/detail.component';
     LoginComponent,
     MainAppComponent,
     PostComponent,
-    DetailComponent
+    DetailComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSummernoteModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(
+      {
+        timeOut: 10000,
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: true,
+      }
+    ),
+    // NgxLoadingModule.forRoot({
+    //   animationType: ngxLoadingAnimationTypes.wanderingCubes,
+    //   backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+    //   backdropBorderRadius: '4px',
+    //   primaryColour: '#ffffff',
+    //   secondaryColour: '#ffffff',
+    //   tertiaryColour: '#ffffff'
+    // })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

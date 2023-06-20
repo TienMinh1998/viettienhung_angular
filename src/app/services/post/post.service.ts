@@ -37,6 +37,23 @@ export class PostService {
 
     return this.http.post(url, data, { headers });
   }
+
+  API_Post(url: string, data: any, token: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.post(url, data, { headers });
+  }
+
+  API_put(url: string, data: any, token: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put(url, data, { headers });
+  }
   
   API_get(url:string,token:string):Observable<any> {
     const headers = new HttpHeaders({
