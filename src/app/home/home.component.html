@@ -12,13 +12,19 @@
 </div>
 <div class="list-product">
     <div *ngFor="let post of posts" class="product-item">
+          <div class="product-item-inside">
             <a class="image">
-                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image">
+                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image" (click)="GoDetail(post.id)">
             </a>
             <div class="title">
                 {{post.title}}
             </div>
-            <button class="btn btn-outline-secondary" (click)="GoDetail(post.id)">Detail</button>
+           
+            <button class="btn btn-dark btn_vth" (click)="GoDetail(post.id)">
+                <i class="fa-solid fa-trash-can"></i>
+                xóa 
+               </button>
+          </div>
     </div>
 </div>
 
