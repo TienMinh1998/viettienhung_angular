@@ -27,7 +27,10 @@
     </style>
 
 
-<div *ngIf="isloading">Đây là loading</div>
+<div class="text-loading" *ngIf="isloading"></div>
+<div class="loader" *ngIf="isloading">
+</div>
+<div class="text-loading" *ngIf="isloading">Đang tải dữ liệu...</div>
 
 <div  class="main-post" *ngIf="!isloading">
     <div class="title"> 
@@ -37,14 +40,17 @@
           Edit</button>
           <button class="btn btn-primary btn-sm btn-margin" (click)="SavePost()">
             <i class="fa-regular fa-floppy-disk"></i>
-            Save</button>
+          Save</button>
+          <button class="btn btn-primary btn-sm btn-margin" (click)="open(id)">
+            <i class="fa-regular fa-floppy-disk"></i>
+          Add Word</button>
     </div>    
     <div> 
       <div *ngIf="!isEditterVisible"  class="imag-container">
         <img  width="100%" height="100%" class="image" src="{{post.image}}">
       </div>
      
-        <div *ngIf="!isEditterVisible" class="content" [innerHTML]="post.content"></div>
+        <div *ngIf="!isEditterVisible" class="content" [innerHTML]="someHtmlCode"></div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng anh:</div>
         <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataPost">
         </div>
@@ -73,5 +79,4 @@
       </table>
      <img src="assets/Cristiano_Ronaldo_Signature.svg">
     </div>
-  
 </div>

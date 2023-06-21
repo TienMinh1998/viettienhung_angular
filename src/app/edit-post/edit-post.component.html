@@ -1,12 +1,8 @@
-<div class="card-header text-center" style="display: initial;">
-    <h3>Chỉnh sửa bài viết</h3>
-</div>
 <div class="card-body">
-    <div class="container">
-        <div [ngxSummernote]="configNgxSummernote">
-        </div>
-    </div>
-    <div class="text-center">
-      <button (click)="closeModal()">Close</button>
-    </div>
+    <label for="fname">Thêm từ quan trọng</label>
+    <input type="text" id="fname" [(ngModel)]="word" placeholder="Nhập từ cần thêm">
+
+    <label for="lname">Thêm định nghĩa cho từ '{{word}}'</label>
+    <input type="text" id="lname" [(ngModel)] = "definition" placeholder="Nhập định nghĩa cho từ vừa rồi">
+    <button class="btn btn-primary vth-btn" (click)="AddWord()">Submit</button>
 </div>

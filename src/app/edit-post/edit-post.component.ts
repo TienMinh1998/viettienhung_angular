@@ -1,87 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PostService } from '../services/post/post.service';
+import { API_BASE_URL } from '../config/apiConfig';
+
 
 @Component({
   selector: 'app-edit-post',
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css']
 })
-export class EditPostComponent {
-  configNgxSummernote: any = {
-    airMode: false,
-    tabDisable: true,
-    popover: {
-        table: [
-            ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
-            ['delete', ['deleteRow', 'deleteCol', 'deleteTable']]
-        ],
-        image: [
-            ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
-            ['float', ['floatLeft', 'floatRight', 'floatNone']],
-            ['remove', ['removeMedia']]
-        ],
-        link: [['link', ['linkDialogShow', 'unlink']]],
-        air: [
-            [
-                'font',
-                [
-                    'bold',
-                    'italic',
-                    'underline',
-                    'strikethrough',
-                    'superscript',
-                    'subscript',
-                    'clear'
-                ]
-            ]
-        ]
-    },
-    height: '500px',
-    // uploadImagePath: '/api/upload',
-    toolbar: [
-        ['misc', ['undo', 'redo']],
-        [
-            'font',
-            [
-                'bold',
-                'italic',
-                'underline',
-                'strikethrough',
-                'superscript',
-                'subscript',
-                'clear'
-            ]
-        ],
-        ['fontsize', ['fontname', 'fontsize', 'color']],
-        ['para', ['style0', 'ul', 'ol', 'paragraph', 'height']],
-        ['insert', ['table', 'picture', 'link', 'video', 'hr']],
-        ['customButtons', ['testBtn']]
-    ]
-};
 
-config = {
-  placeholder: '',
-  tabsize: 2,
-  height: '200px',
-  uploadImagePath: '/api/upload',
-  toolbar: [
-      ['misc', ['codeview', 'undo', 'redo']],
-      ['style', ['bold', 'italic', 'underline', 'clear']],
-      ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-      ['fontsize', ['fontname', 'fontsize', 'color']],
-      ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
-      ['insert', ['table', 'picture', 'link', 'video', 'hr']]
-  ],
-  fontNames: ['Helvetica', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Roboto', 'Times']
+
+
+export class EditPostComponent implements OnInit {
+   word!:string;
+   definition!:string;
+    postId!: number;
+    constructor( private postService:PostService, private modalService: NgbModal) {
+}
+    ngOnInit(): void {
+       console.log(this.postId)
+    }
+
+AddWord(){
+    let datajson ={
+        readingId: this.postId ,
+        meaning: this.word,
+        word: this.word
+    }
+    var token = this.postService.getTokenFromLocalStorage();
+    this.postService.API_Post(`${API_BASE_URL}/phrase/add`,datajson,String(token)).subscribe((res:any)=>{
+        if (res && res.status==200) {
+           this.modalService.dismissAll();
+        }
+    })
 }
 
-
-constructor(private modalService: NgbModal) {
-
-}
-
-closeModal() {
-  this.modalService.dismissAll();
-}
 
 }

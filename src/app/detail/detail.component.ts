@@ -25,7 +25,6 @@ export class DetailComponent implements OnInit {
   dayOfpost!:number;
 
   public someHtmlCode = '';
-
   configNgxSummernote: any = {
     airMode: false,
     tabDisable: true,
@@ -149,13 +148,22 @@ isloading = false;
     this.toastr.success('Cập nhật thành công', 'Thông báo');
   }
   open(content: any) {
+    console.log(content);
     const modalRef = this.modalService.open(EditPostComponent, {
         size: "md",
         centered: true,
         ariaLabelledBy: 'modal-basic-title',
         scrollable: true
     });
+    (<EditPostComponent>modalRef.componentInstance).postId = content;
+    modalRef.result.then(()=>{
+
+    }).catch(()=>{
+      this.GetPhrase();
+      this.toastr.success('Thêm từ mới thành công', 'Thông báo');
+    })
 }
+
 
 displayEditer()
 {

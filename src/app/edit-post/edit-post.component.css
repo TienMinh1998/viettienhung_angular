@@ -1,86 +1,35 @@
-.img-regis {
-    width: 222px;
-    height: 80px;
-    margin-bottom: 10px;
-}
-
-.text-blue {
-    font-size: 17px;
-    color: #0052CC;
-}
-
-.text-blue:hover {
-    text-decoration: underline;
-}
-
-.input-group-text {
-    background-color: rgb(191, 191, 255);
-    color: #fff;
-    font-size: 20px;
-}
-
-span.input-group-text.verify-txt {
-    background-color: #fff;
+input[type=text], select {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
     border: 1px solid #ccc;
-    color: #2cde37;
-    font-size: 15px;
-    font-weight: 600;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    border-top-right-radius: 10px !important;
-    border-bottom-right-radius: 10px !important;
-}
+  }
+  
+  input[type=submit]:hover {
+    background-color: black;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
 
-input.form-control {
-    border-top-right-radius: 10px !important;
-    border-bottom-right-radius: 10px !important;
-}
-
-.txt-custom {
-    font-size: 13px;
-}
-
-span.input-group-text.password-icon {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: #ccf;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    border-top-right-radius: 10px !important;
-    border-bottom-right-radius: 10px !important;
-}
-
-input#password {
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-}
-
-input#confirmPassword {
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-}
-
-.txt-size {
-    font-size: 13px;
-}
-
-.icon-gg {
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #d8dae3;
-    padding: 7px 0px;
-    min-width: 181px;
-    margin-bottom: 10px;
-}
-
-.gg-img {
-    width: 25px;
-}
-
-.divider:after,
-.divider:before {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #eee;
-}
+  .vth-btn{
+    background-color: black;
+    border: none;
+  }
