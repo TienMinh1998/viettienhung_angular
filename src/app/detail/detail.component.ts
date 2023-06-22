@@ -160,7 +160,7 @@ isloading = false;
 
     }).catch(()=>{
       this.GetPhrase();
-      this.toastr.success('Thêm từ mới thành công', 'Thông báo');
+    
     })
 }
 

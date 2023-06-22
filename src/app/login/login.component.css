@@ -180,4 +180,14 @@ footer small {
     font-size: 11px;
 }
 
+.vth-btn{
+    margin-top: 10px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
 

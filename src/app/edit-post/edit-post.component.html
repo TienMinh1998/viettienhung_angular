@@ -1,8 +1,9 @@
-<div class="card-body">
-    <label for="fname">Thêm từ quan trọng</label>
-    <input type="text" id="fname" [(ngModel)]="word" placeholder="Nhập từ cần thêm">
 
-    <label for="lname">Thêm định nghĩa cho từ '{{word}}'</label>
+<div class="pn-header">
+    
+    <p>Please add new pharse to learn.</p></div>
+<div class="card-body">
+    <input type="text" id="fname" [(ngModel)]="word" placeholder="Nhập từ cần thêm">
     <input type="text" id="lname" [(ngModel)] = "definition" placeholder="Nhập định nghĩa cho từ vừa rồi">
-    <button class="btn btn-primary vth-btn" (click)="AddWord()">Submit</button>
+    <button class="btn btn-primary vth-btn" (click)="AddWord()">Add '{{word}}'</button>
 </div>
