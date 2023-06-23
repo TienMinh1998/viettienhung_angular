@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-app',
   templateUrl: './main-app.component.html',
   styleUrls: ['./main-app.component.css']
 })
-export class MainAppComponent {
+export class MainAppComponent implements OnInit {
 
+  slides = [
+    {
+      url : '/assets/ronaldo.png', title:'ronaldo'
+    },
+    {
+      url : '', title:'ronaldo'
+    },
+  ];
+
+  ngOnInit(): void {
+   
+  }
+  
 }
