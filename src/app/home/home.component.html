@@ -1,9 +1,13 @@
 <div class="intro">
     <button class="btn btn-primary vth-btn" (click)="openFormChild($event)">Learn</button>
 </div>
-<h1>DANH SÁCH CÁC BÀI VIẾT</h1>
-<div class="list-product">
-    <div *ngFor="let post of posts; let newpost of newlists" class="product-item">
+<div class="container font-weight-bold ">
+    <h1 >DANH SÁCH CÁC BÀI VIẾT</h1>
+</div>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+   <div class="row">
+    <div *ngFor="let post of posts; let newpost of newlists" class="col-sm-12 col-md-3">
         <div class="product-item-inside">
             <a class="image">
                 <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image"
@@ -16,10 +20,7 @@
             <ngb-rating [rate]="post.band"></ngb-rating>
             <hr />
             <pre>Rate: <b>{{currentRate}}</b></pre>
-            <button class="btn btn-dark btn_vth" (click)="GoDetail(post.id)">
-                <i class="fa-solid fa-trash-can"></i>
-                xóa
-            </button>
         </div>
     </div>
+   </div>
 </div>

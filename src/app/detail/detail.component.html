@@ -1,71 +1,45 @@
-<style>
-    #customers {
-      margin: auto;
-      font-family: Arial, Helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
-      text-align: center;
-    }
-    
-    #customers td, #customers th {
-      border: 1px solid #ddd;
-      padding: 3px;
-      text-align: center;
-    }
-    
-    #customers tr:nth-child(even){background-color: #f2f2f2;}
-    
-    #customers tr:hover {background-color: #ddd;}
-    
-    #customers th {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      text-align: center;
-      background-color: black;
-      color: white;
-    }
-    </style>
+<div class="container">
 
+  <div class="text-loading" *ngIf="isloading"></div>
+  <div class="loader" *ngIf="isloading">
+  </div>
+  <div class="text-loading" *ngIf="isloading">Đang tải dữ liệu...</div>
 
-<div class="text-loading" *ngIf="isloading"></div>
-<div class="loader" *ngIf="isloading">
-</div>
-<div class="text-loading" *ngIf="isloading">Đang tải dữ liệu...</div>
-
-<div  class="main-post" *ngIf="!isloading">
-    <div class="title"> 
-        {{post.title}}
-        <button class="btn btn-primary btn-sm btn-margin" (click)="displayEditer()">
-          <i class="fa-solid fa-pen-to-square"></i>
-          Edit</button>
-          <button class="btn btn-primary btn-sm btn-margin" (click)="SavePost()">
-            <i class="fa-regular fa-floppy-disk"></i>
-          Save</button>
-          <button class="btn btn-primary btn-sm btn-margin" (click)="open(id)">
-            <i class="fa-regular fa-floppy-disk"></i>
-          Add Word</button>
-    </div>    
-    <div> 
-      <div *ngIf="!isEditterVisible"  class="imag-container">
-        <img  width="100%" height="100%" class="image" src="{{post.image}}">
+  <div class="col-md-12" *ngIf="!isloading">
+    <div class="title d-none d-sm-block">
+      {{post.title}}
+      <button class="btn btn-primary btn-sm btn-margin" (click)="displayEditer()">
+        <i class="fa-solid fa-pen-to-square"></i>
+        Edit</button>
+      <button class="btn btn-primary btn-sm btn-margin" (click)="SavePost()">
+        <i class="fa-regular fa-floppy-disk"></i>
+        Save</button>
+      <button class="btn btn-primary btn-sm btn-margin" (click)="open(id)">
+        <i class="fa-regular fa-floppy-disk"></i>
+        Add Word</button>
+    </div>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-center" *ngIf="!isEditterVisible">
+        <div  class="mx-auto text-center imag-container">
+          <img width="100%" height="100%" class="image" src="{{post.image}}">
+        </div>
       </div>
-     
+
+      <div class="col-md-12">
+
         <div *ngIf="!isEditterVisible" class="content" [innerHTML]="someHtmlCode"></div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng anh:</div>
         <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataPost">
         </div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng việt:</div>
-        <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataVietName">
-          
-        </div>
-        <app-dropdown>
-          
-        </app-dropdown>
+        <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote"
+          [(ngModel)]="binDataVietName">
 
+        </div>
         <ngx-summernote [(ngModel)]="binDataVietName"></ngx-summernote>
+      </div>
 
     </div>
-    <div class="title-table">Từ quan trọng</div>
 
     <div class="table-footer">
       <table id="customers">
@@ -79,8 +53,7 @@
           <td>{{phrase.word}}</td>
           <td>{{phrase.definition}}</td>
         </tr>
-        
+
       </table>
-     <img src="assets/Cristiano_Ronaldo_Signature.svg">
     </div>
-</div>
+  </div>

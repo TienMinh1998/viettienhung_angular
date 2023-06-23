@@ -9,7 +9,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { MainAppComponent } from './main-app/main-app.component';
 import { FormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { DetailComponent } from './detail/detail.component';
@@ -33,7 +32,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    MainAppComponent,
     PostComponent,
     DetailComponent,
     EditPostComponent,

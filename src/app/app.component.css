@@ -1,0 +1,59 @@
+.main-header{
+    height: 36px;
+    background-color: whitesmoke;
+ }
+ ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul li {
+    line-height: 36px;
+    margin-right: 20px;
+    list-style-type: none;
+    font-size: 13px;
+}
+
+ul li a:hover{
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.left-icon{
+    line-height: 36px;
+    margin-right: 5px;
+}
+
+/* Slider */
+.slider{
+    position: relative;
+    padding-top: 30%;
+    background: url("/assets/ronaldo.png") top center / cover no-repeat;
+}
+
+.text-content{
+    top: 32px;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  
+}
+
+.avatar{
+    display: flex;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border-radius: 10px;
+    top: 20px;
+    left: 20px;
+}
+.image-avartar{
+    border-radius: 50%;
+}
+
+.avatar .infomation{
+    color: white;
+}

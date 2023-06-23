@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
   }
   
   GoDetail(id:number){
-      this.router.navigate(['/home', id])
+      this.router.navigate(['/postdetail', id])
       console.log(id)
   }
 
