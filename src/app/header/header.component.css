@@ -6,6 +6,9 @@
     border-radius: 5px;
     height: 46px;
     background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    color: white;
 }
 
 
@@ -27,6 +30,15 @@
 }
 
 .menu li:hover{
-    background-color: #db6900;
+    background-color: #8a8a8a;
 }
 
+.student-name{
+    font-weight: bold;
+    line-height: 46px;
+    padding-right: 10px;
+}
+
+#avatar{
+    border-radius: 50%;
+}
