@@ -56,7 +56,11 @@
         </div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng việt:</div>
         <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataVietName">
+          
         </div>
+        <app-dropdown>
+          
+        </app-dropdown>
 
         <ngx-summernote [(ngModel)]="binDataVietName"></ngx-summernote>
 

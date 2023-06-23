@@ -18,7 +18,11 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { AddpostComponent } from './addpost/addpost.component';
+import { NgbAccordionModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { DateFormatPipe } from './pipecustoms/date-pipe-custom.pipe';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -32,7 +36,10 @@ import { ToastrModule } from 'ngx-toastr';
     MainAppComponent,
     PostComponent,
     DetailComponent,
-    EditPostComponent
+    EditPostComponent,
+    AddpostComponent,
+    DateFormatPipe,
+    DropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,9 @@ import { ToastrModule } from 'ngx-toastr';
     NgxSummernoteModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
+    NgbRatingModule,
+    NgbAccordionModule,
+    MatSlideToggleModule,
     ToastrModule.forRoot(
       {
         timeOut: 10000,

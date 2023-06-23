@@ -11,11 +11,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-post.component.css']
 })
 
-
-
 export class EditPostComponent implements OnInit {
-   word!:string;
-   definition!:string;
+    word!:string;
+    definition!:string;
     postId!: number;
     constructor( private postService:PostService, private modalService: NgbModal, private toastr:ToastrService) {
 }
@@ -23,7 +21,7 @@ export class EditPostComponent implements OnInit {
        console.log(this.postId)
     }
 
-AddWord(){
+   AddWord(){
     let datajson ={
         readingId: this.postId ,
         meaning: this.definition,

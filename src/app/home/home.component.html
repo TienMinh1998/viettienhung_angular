@@ -1,30 +1,25 @@
-
 <div class="intro">
-    @viettienhung-limitedCompany
-    <div class="text-intro">
-        IELTS 8.0 INTO STYLE
-    </div>
-    <div class="sub-text-intro">
-        For days when you need kicks thant can keep up with your every more. #ChaseTheDay
-    </div>
-    <button class="btn btn-primary vth-btn">Learn</button>
-    <button class="btn btn-primary vth-btn">Detail</button>
+    <button class="btn btn-primary vth-btn" (click)="openFormChild($event)">Learn</button>
 </div>
+
 <div class="list-product">
-    <div *ngFor="let post of posts" class="product-item">
-          <div class="product-item-inside">
+    <div *ngFor="let post of posts; let newpost of newlists" class="product-item">
+        <div class="product-item-inside">
             <a class="image">
-                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image" (click)="GoDetail(post.id)">
+                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image"
+                    (click)="GoDetail(post.id)">
             </a>
             <div class="title">
                 {{post.title}}
             </div>
-            {{post.createdDate}}
+            {{newpost.createdDate | dateFormat}}
+            <ngb-rating [rate]="post.band"></ngb-rating>
+            <hr />
+            <pre>Rate: <b>{{currentRate}}</b></pre>
             <button class="btn btn-dark btn_vth" (click)="GoDetail(post.id)">
                 <i class="fa-solid fa-trash-can"></i>
-                xóa 
-               </button>
-          </div>
+                xóa
+            </button>
+        </div>
     </div>
 </div>
-

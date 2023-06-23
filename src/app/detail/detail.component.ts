@@ -133,7 +133,7 @@ isloading = false;
       translate: this.binDataVietName,
       status: this.post.status,
       taskName: this.post.taskName,
-      band: this.post.brand,
+      band: this.post.band,
       type: this.post.type,
       id: this.post.id,
       createdDate: this.post.createdDate,

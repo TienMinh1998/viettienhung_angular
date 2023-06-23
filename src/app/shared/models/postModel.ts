@@ -1,6 +1,6 @@
 export class PostModel {
     id!:number;
-    brand!:number;
+    band!:number;
     content!:number;
     image!:string;
     title!:string;
