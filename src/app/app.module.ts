@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AddpostComponent } from './addpost/addpost.component';
-import { NgbAccordionModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbRatingModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateFormatPipe } from './pipecustoms/date-pipe-custom.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -52,6 +52,7 @@ import { WordsComponent } from './words/words.component';
     NgbRatingModule,
     NgbAccordionModule,
     MatSlideToggleModule,
+    MatPaginatorModule,
     ToastrModule.forRoot(
       {
         timeOut: 10000,
@@ -59,6 +60,7 @@ import { WordsComponent } from './words/words.component';
         preventDuplicates: true,
       }
     ),
+    NgbModule,
     // NgxLoadingModule.forRoot({
     //   animationType: ngxLoadingAnimationTypes.wanderingCubes,
     //   backdropBackgroundColour: 'rgba(0,0,0,0.1)',

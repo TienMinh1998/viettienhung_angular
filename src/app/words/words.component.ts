@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post/post.service';
+import { Vocabulary } from '../shared/models/vocabularyModel';
 
 @Component({
   selector: 'app-words',
@@ -8,26 +9,36 @@ import { PostService } from '../services/post/post.service';
 })
 export class WordsComponent implements OnInit {
 
+  vocabularies:Vocabulary[]= [];
+  totalCount:number = 0;
+  pageindex:number=0;
+  pagesize:number=24;
+
   constructor(private postService:PostService){}
   ngOnInit(): void {
-   this.getVocabulary();
   }
 
   getVocabulary(){
    const dataJson = 
     {
-      pageSize: 10,
-      pageNumber: 1,
+      pageSize: this.pagesize,
+      pageNumber: this.pageindex,
       columnSort: "created_on",
       isDesc: true,
-      date: "",
-      page: 1
+      date: ""
   }
   var token = this.postService.getTokenFromLocalStorage();
   const url = "https://viettienhung.com/QuestionStandard/AllQuestion";
-  var getVocabularies = this.postService.API_Post(url,dataJson,String(token)).subscribe(res=>{
-    console.log("res",res);
+   this.postService.API_Post(url,dataJson,String(token)).subscribe((res:any)=>{
+   this.vocabularies = res.data.items;
+   this.totalCount = res.data.totalCount;
+   console.log(this.pageindex);
   })
-  console.log(getVocabularies)
+  }
+
+  changePage(){
+   // this.pageindex = currnetIndex;
+     console.log(this.pageindex);
+     this.getVocabulary();
   }
 }

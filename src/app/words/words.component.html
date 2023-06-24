@@ -1,32 +1,40 @@
 <div class="container">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Từ tiếng anh</th>
+            <th scope="col">Nghĩa tiếng việt</th>
+            <th scope="col">thời gian thêm</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tbody >
+          <tr *ngFor="let item of vocabularies; let i = index">
+            <th scope="row">{{i+1+(pageindex-1)*24}}</th>
+            <td>
+              <img
+					[src]="'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg'"
+					class="me-2"
+					style="width: 20px"
+				/>
+              {{item.english}}</td>
+            <td>
+              <img
+					[src]="'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg'"
+					class="me-2"
+					style="width: 20px"
+				/>
+              {{item.note}}</td>
+            <td>{{item.created_on | dateFormat}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+         
         </tbody>
       </table>
+      <div class="container d-flex justify-content-center">
+        <ngb-pagination [collectionSize]="this.totalCount" 
+        [(page)]="pageindex" [boundaryLinks]="true"
+        [pageSize]="pagesize"
+        (pageChange)="changePage()"></ngb-pagination>
+      </div>
+      
 </div>
