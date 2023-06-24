@@ -22,6 +22,7 @@ import { NgbAccordionModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap'
 import { DateFormatPipe } from './pipecustoms/date-pipe-custom.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { WordsComponent } from './words/words.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AddpostComponent,
     DateFormatPipe,
     DropdownComponent,
+    WordsComponent,
   ],
   imports: [
     BrowserModule,
