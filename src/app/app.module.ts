@@ -23,7 +23,9 @@ import { DateFormatPipe } from './pipecustoms/date-pipe-custom.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { WordsComponent } from './words/words.component';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,9 @@ import { WordsComponent } from './words/words.component';
     NgbAccordionModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatButtonModule,
+     MatDividerModule,
+     MatIconModule,
     ToastrModule.forRoot(
       {
         timeOut: 10000,

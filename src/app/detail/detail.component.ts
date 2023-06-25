@@ -25,6 +25,7 @@ export class DetailComponent implements OnInit {
   dayOfpost!:number;
 
   public someHtmlCode = '';
+  public someHtmlCode2 = '';
   configNgxSummernote: any = {
     airMode: false,
     tabDisable: true,
@@ -81,6 +82,7 @@ binDataPost !:string;
 binDataVietName !:string;
 isEditterVisible = false;
 isloading = false;
+tranlateVisible = false;
 
   constructor(private route:ActivatedRoute,
     private postService:PostService,
@@ -103,6 +105,8 @@ isloading = false;
         this.post = res.data;
         this.binDataPost = res.data.content;
         this.someHtmlCode = this.sanitizer.bypassSecurityTrustHtml(res.data.content) as string;
+        this.someHtmlCode2 = this.sanitizer.bypassSecurityTrustHtml(res.data.translate) as string;
+
         this.binDataVietName = res.data.translate;
         this.isloading = false;
       }
@@ -169,4 +173,11 @@ displayEditer()
 {
   this.isEditterVisible=!this.isEditterVisible;
 }
+
+
+
+showTranlate(){
+  this.tranlateVisible=!this.tranlateVisible;
+}
+
 }

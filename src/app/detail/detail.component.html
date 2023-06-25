@@ -6,37 +6,44 @@
   <div class="text-loading" *ngIf="isloading">Đang tải dữ liệu...</div>
 
   <div class="col-md-12" *ngIf="!isloading">
-    <div class="title d-none d-sm-block">
+    <div class="title d-none d-sm-block shadow-lg p-3 mb-5 bg-white rounded mt-2">
       {{post.title}}
-      <button class="btn btn-primary btn-sm btn-margin" (click)="displayEditer()">
+      <button mat-stroked-button color="primary" (click)="displayEditer()">
         <i class="fa-solid fa-pen-to-square"></i>
         Edit</button>
-      <button class="btn btn-primary btn-sm btn-margin" (click)="SavePost()">
+      <button mat-stroked-button color="warn" (click)="SavePost()">
         <i class="fa-regular fa-floppy-disk"></i>
         Save</button>
-      <button class="btn btn-primary btn-sm btn-margin" (click)="open(id)">
+      <button mat-raised-button color="accent" (click)="open(id)">
         <i class="fa-regular fa-floppy-disk"></i>
         Add Word</button>
     </div>
     <div class="row">
       <div class="col-md-12 d-flex justify-content-center" *ngIf="!isEditterVisible">
-        <div  class="mx-auto text-center imag-container">
+        <div class="mx-auto text-center imag-container">
           <img width="100%" height="100%" class="image" src="{{post.image}}">
         </div>
       </div>
 
       <div class="col-md-12">
-
+        <!--Phần tiếng anh-->
         <div *ngIf="!isEditterVisible" class="content" [innerHTML]="someHtmlCode"></div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng anh:</div>
         <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataPost">
         </div>
-        <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng việt:</div>
-        <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote"
-          [(ngModel)]="binDataVietName">
 
+        <div class="container d-flex justify-content-center mt-1 mb-2">
+          <button mat-stroked-button color="primary" (click)="showTranlate()">Xem bản dịch</button>
         </div>
-        <ngx-summernote [(ngModel)]="binDataVietName"></ngx-summernote>
+        <!--Phần tiếng việt-->
+        <div *ngIf="tranlateVisible">
+          <div *ngIf="!isEditterVisible" class="content" [innerHTML]="someHtmlCode2"></div>
+          <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng việt:</div>
+          <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote"
+            [(ngModel)]="binDataVietName"> </div>
+        </div>
+
+
       </div>
 
     </div>
