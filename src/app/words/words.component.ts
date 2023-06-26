@@ -17,6 +17,10 @@ export class WordsComponent implements OnInit {
   pageindex:number=0;
   pagesize:number=24;
   todayNum:number=0;
+  todayNumCopy:number=0;
+
+  isTodayChange:boolean = false;
+
   today = new Date();
   constructor(private postService:PostService,
     private modalService: NgbModal
@@ -25,7 +29,6 @@ export class WordsComponent implements OnInit {
   }
 // Lấy danh sách từ vựng
   getVocabulary(){
-    this.todayNum=0;
    const dataJson = 
     {
       pageSize: this.pagesize,
@@ -39,7 +42,13 @@ export class WordsComponent implements OnInit {
    this.postService.API_Post(url,dataJson,String(token)).subscribe((res:any)=>{
    this.vocabularies = res.data.items;
    this.totalCount = res.data.totalCount;
+   this.todayNumCopy =0;
    this.CountVocabularyForToday();
+   if (this.todayNumCopy!=this.todayNum) {
+    this.todayNum= this.todayNumCopy;
+   } else {
+    // không làm gì cả
+   }
   })
   }
 // Thay đổi trang hiển thị
@@ -70,7 +79,7 @@ export class WordsComponent implements OnInit {
         createdDate.getMonth() ===this.today.getMonth() &&
         createdDate.getFullYear() ===this.today.getFullYear()
       ) {
-        this.todayNum += 1;
+        this.todayNumCopy +=1;
       }
      })
    }
