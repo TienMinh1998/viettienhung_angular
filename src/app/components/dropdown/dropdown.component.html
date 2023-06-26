@@ -1,8 +1,9 @@
 <div class="dropdown">
     <button class="dropbtn">chọn khóa học <i class="fa-sharp fa-solid fa-caret-down"></i></button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="#">{{name}}</a>
     </div>
+   <label for="item-input" >Add an item:</label>
+<input type="text" id="item-input" (change)="mychange($event)">
+<button type="button" (click)="addNewItem(inputText)">Add to parent's list</button>
   </div>
