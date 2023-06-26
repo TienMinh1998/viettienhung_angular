@@ -25,12 +25,6 @@ ul li a:hover{
     margin-right: 5px;
 }
 
-/* Slider */
-.slider{
-    position: relative;
-    padding-top: 30%;
-    background: url("/assets/ronaldo.png") top center / cover no-repeat;
-}
 
 .text-content{
     top: 32px;

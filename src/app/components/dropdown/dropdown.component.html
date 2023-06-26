@@ -4,6 +4,6 @@
       <a href="#">{{name}}</a>
     </div>
    <label for="item-input" >Add an item:</label>
-<input type="text" id="item-input" (change)="mychange($event)">
-<button type="button" (click)="addNewItem(inputText)">Add to parent's list</button>
+<input type="text" id="item-input" #itemInput>
+<button type="button" (click)="addNewItem(itemInput.value)">Add to parent's list</button>
   </div>

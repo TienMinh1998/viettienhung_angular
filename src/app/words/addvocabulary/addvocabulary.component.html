@@ -1,0 +1,44 @@
+
+<div class="card-body">
+    <form [formGroup]="reactiveForm" (ngSubmit)="AddWord()">
+        <div class="title"> ADD NEW WORD</div>
+
+        <label>Từ vựng tiếng anh (<span class="text-danger">*</span>): </label>
+        <input [required]="'4'" type="text" formControlName="vocabulary"  placeholder="Enter vocabulary...">
+        <span class="text-danger" *ngIf="vocabulary && vocabulary.invalid && vocabulary.touched">Bạn phải nhập từ tiếng anh!</span>
+        <br>
+        <label>Nghĩa tiếng anh (</label>
+        <span class="text-danger">*</span>):
+        <input type="text" formControlName="english" placeholder="Enter english meaning...">
+        <span class="text-danger" *ngIf="english && english.invalid && english.touched">Bạn phải nhập nghĩa tiếng anh!</span>
+        <br>
+
+        <label>Nghĩa tiếng việt(
+            <span class="text-danger">*</span>
+            ):</label>
+        <input type="text" formControlName="vietnam" placeholder="Enter vietnamese meaning...">
+        <span class="text-danger" *ngIf="vietnam && vietnam.invalid && vietnam.touched">Bạn phải nhập nghĩa tiếng việt!</span>
+        <br>
+
+        <label>Nghĩa phiên âm(
+            <span class="text-success">*</span>
+            ):</label>
+        <input type="text" formControlName="phonetic"  placeholder="Enter phonetic...">
+    
+        <label>Ghi chú(
+            <span class="text-success">*</span>
+            ):</label>
+        <input type="text" formControlName="note" placeholder="Enter note...">
+
+       <div  class="form-group">
+        <button 
+        [disabled]="reactiveForm.invalid"
+        type="submit"
+        mat-raised-button color="primary">
+            <i class="fa-regular fa-square-plus"></i>
+            Thêm từ</button> 
+       </div>
+    </form>
+    
+</div>
+

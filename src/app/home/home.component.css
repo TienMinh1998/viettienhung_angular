@@ -95,3 +95,9 @@ li a:hover{
   display: block;
 }
 
+/* Slider */
+.slider{
+    position: relative;
+    padding-top: 30%;
+    background: url("/assets/ronaldo.png") top center / cover no-repeat;
+}

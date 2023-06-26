@@ -1,7 +1,24 @@
 <div class="container">
+    <div class="row text-center m-3">
+      <div class="col-sm-12 col-md-3 col-lg-3 info d-flex justify-content-center">
+        <app-dasboard-overview 
+           [number]="totalCount"
+           [text]="'Tổng số từ đã thêm'"
+           >
+          </app-dasboard-overview>
+         
+      </div>
+      <div class="col-sm-12 col-md-3 col-lg-3 info d-flex justify-content-center align-items-center"
+      matTooltip="Thêm từ mới vào khu chứa từ."
+      >
+        <a  mat-raised-button color="accent" (click)="openFormChild($event)" target="_blank">Admin-add-vocabulary</a>
+      </div>
+      
+    </div>
+    
     <table class="table table-striped">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">#</th>
             <th scope="col">Từ tiếng anh</th>
             <th scope="col">Nghĩa tiếng việt</th>
@@ -9,7 +26,10 @@
           </tr>
         </thead>
         <tbody >
-          <tr *ngFor="let item of vocabularies; let i = index">
+          <tr class="mytr" *ngFor="let item of vocabularies; let i = index"
+           matTooltip="Lưu ý : {{item.note}}" 
+           [matTooltipPosition]="'above'"
+           >
             <th scope="row">{{i+1+(pageindex-1)*24}}</th>
             <td>
               <img
@@ -24,7 +44,7 @@
 					class="me-2"
 					style="width: 20px"
 				/>
-              {{item.note}}</td>
+              {{item.meaningVietNam}}</td>
             <td>{{item.created_on | dateFormat}}</td>
           </tr>
          

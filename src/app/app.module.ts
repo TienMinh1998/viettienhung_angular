@@ -27,7 +27,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { TestComponent } from './test/test.component';
-
+import { MainComponent } from './main/main.component';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DasboardOverviewComponent } from './components/dasboard-overview/dasboard-overview.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AddvocabularyComponent } from './words/addvocabulary/addvocabulary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +49,9 @@ import { TestComponent } from './test/test.component';
     DropdownComponent,
     WordsComponent,
     TestComponent,
+    MainComponent,
+    DasboardOverviewComponent,
+    AddvocabularyComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +76,9 @@ import { TestComponent } from './test/test.component';
       }
     ),
     NgbModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTooltipModule
     // NgxLoadingModule.forRoot({
     //   animationType: ngxLoadingAnimationTypes.wanderingCubes,
     //   backdropBackgroundColour: 'rgba(0,0,0,0.1)',

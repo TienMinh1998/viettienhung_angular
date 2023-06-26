@@ -1,29 +1,22 @@
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css']
 })
-export class DropdownComponent implements OnInit {
- inputText:string= ''
+export class DropdownComponent implements DoCheck{
 
- @Input() name = "No name"; // Tên của dropdown
+ @Input() name!:string; // Tên của dropdown
+ 
  @Output() newItemEvent = new EventEmitter<string>();
-
  constructor(){}
-  ngOnInit(): void {
-    
+  ngDoCheck(): void {
+    console.log("ngDocheck executed!",this.name)
   }
-  
-
 
   addNewItem(value: string) {
     this.newItemEvent.emit(value);
-  }
-
-  mychange(value:any){
-      console.log("change action:",value)
   }
 
 }

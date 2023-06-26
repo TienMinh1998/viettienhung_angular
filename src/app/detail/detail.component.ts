@@ -4,7 +4,7 @@ import { PostService } from '../services/post/post.service';
 import { API_BASE_URL } from '../config/apiConfig';
 import { PostModel } from '../shared/models/postModel';
 import { phraseModel } from '../shared/models/phraseModel';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EditPostComponent } from '../edit-post/edit-post.component';
 import { ToastrService } from 'ngx-toastr';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -151,22 +151,30 @@ tranlateVisible = false;
     });
     this.toastr.success('Cập nhật thành công', 'Thông báo');
   }
-  open(content: any) {
+  open(content: any): void {
     console.log(content);
-    const modalRef = this.modalService.open(EditPostComponent, {
-        size: "md",
-        centered: true,
-        ariaLabelledBy: 'modal-basic-title',
-        scrollable: true
+    const modalRef: NgbModalRef = this.modalService.open(EditPostComponent, {
+      size: 'md',
+      centered: true,
+      ariaLabelledBy: 'modal-basic-title',
+      scrollable: true
     });
-    (<EditPostComponent>modalRef.componentInstance).postId = content;
-    modalRef.result.then(()=>{
+    const editPostComponent: EditPostComponent = modalRef.componentInstance;
+    editPostComponent.postId = content;
 
-    }).catch(()=>{
-      this.GetPhrase();
-    
-    })
-}
+    modalRef.result
+      .then((result) => {
+        // Xử lý khi đóng modal thành công
+        console.log('Modal closed with result:', result);
+  
+      })
+      .catch((error) => {
+        // Xử lý khi đóng modal có lỗi
+        console.error('Error while closing modal:', error);
+        this.GetPhrase();
+      });
+  }
+
 
 
 displayEditer()

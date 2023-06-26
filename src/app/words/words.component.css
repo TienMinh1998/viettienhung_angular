@@ -1,0 +1,10 @@
+.panel-total{
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.mytr:hover{
+    background-color: aqua;
+    cursor: pointer;
+}
