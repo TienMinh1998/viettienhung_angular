@@ -4,6 +4,7 @@ import { Vocabulary } from '../shared/models/vocabularyModel';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddvocabularyComponent } from './addvocabulary/addvocabulary.component';
 
+
 @Component({
   selector: 'app-words',
   templateUrl: './words.component.html',
@@ -15,14 +16,16 @@ export class WordsComponent implements OnInit {
   totalCount:number = 0;
   pageindex:number=0;
   pagesize:number=24;
-
+  todayNum:number=0;
+  today = new Date();
   constructor(private postService:PostService,
     private modalService: NgbModal
     ){}
   ngOnInit(): void {
   }
-
+// Lấy danh sách từ vựng
   getVocabulary(){
+    this.todayNum=0;
    const dataJson = 
     {
       pageSize: this.pagesize,
@@ -36,17 +39,14 @@ export class WordsComponent implements OnInit {
    this.postService.API_Post(url,dataJson,String(token)).subscribe((res:any)=>{
    this.vocabularies = res.data.items;
    this.totalCount = res.data.totalCount;
-   console.log(this.pageindex);
+   this.CountVocabularyForToday();
   })
   }
-
+// Thay đổi trang hiển thị
   changePage(){
-   // this.pageindex = currnetIndex;
-     console.log(this.pageindex);
      this.getVocabulary();
   }
-
-
+// mở form con
   openFormChild(content: any) {
     console.log(content);
     const modalRef = this.modalService.open(AddvocabularyComponent, {
@@ -61,4 +61,17 @@ export class WordsComponent implements OnInit {
       this.getVocabulary();
     })
   }
+ // đếm số từ vựng ngày hôm nay tạo được
+   CountVocabularyForToday(){
+    this.vocabularies.forEach((item)=>{
+      const createdDate = new Date(item.created_on);
+      if (
+        createdDate.getDate() === this.today.getDate() &&
+        createdDate.getMonth() ===this.today.getMonth() &&
+        createdDate.getFullYear() ===this.today.getFullYear()
+      ) {
+        this.todayNum += 1;
+      }
+     })
+   }
 }

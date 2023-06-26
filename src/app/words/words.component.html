@@ -1,17 +1,16 @@
 <div class="container">
     <div class="row text-center m-3">
-      <div class="col-sm-12 col-md-3 col-lg-3 info d-flex justify-content-center">
-        <app-dasboard-overview 
-           [number]="totalCount"
-           [text]="'Tổng số từ đã thêm'"
-           >
-          </app-dasboard-overview>
-         
+      <div class="col-sm-12 col-md-4 col-lg-4 info d-flex justify-content-center">
+        <app-dasboard-overview  [number]="todayNum"[text]="'Hôm nay'"></app-dasboard-overview>
+        <app-dasboard-overview  [number]="totalCount"[text]="'Tổng số từ đã thêm'" ></app-dasboard-overview>
+       
       </div>
+
+      
       <div class="col-sm-12 col-md-3 col-lg-3 info d-flex justify-content-center align-items-center"
       matTooltip="Thêm từ mới vào khu chứa từ."
       >
-        <a  mat-raised-button color="accent" (click)="openFormChild($event)" target="_blank">Admin-add-vocabulary</a>
+        <button  mat-raised-button color="accent" (click)="openFormChild($event)" target="_blank">Admin-add-vocabulary</button>
       </div>
       
     </div>
