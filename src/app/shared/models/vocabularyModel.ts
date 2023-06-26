@@ -5,5 +5,6 @@ export class Vocabulary{
     note!:string;
     phonetic!:string;
     pk_QuestionStandard_Id!:number
+    meaningEnglish!:string;
     created_on!:Date;
 }
