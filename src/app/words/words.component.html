@@ -48,8 +48,11 @@
               {{item.meaningEnglish}}</td>
             <td>{{item.created_on | date }}</td>
             <td>{{item.note}}</td>
-            <td>
+            <td *ngIf="item.audio !=null">
               <audio controls><source src="{{item.audio}}" type="audio/mpeg" /></audio>
+            </td>
+            <td *ngIf="item.audio ==null">
+               <div class="text-center text-danger">Chưa có file âm thanh</div>
             </td>
           </tr>
           

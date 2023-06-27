@@ -16,6 +16,12 @@ export class HomeComponent implements OnInit {
   currentRate = 8;
   posts:PostModel[] = [];
   newlists:PostModel[] = [];
+ // Dữ liệu để phân trang
+ totalCount:number = 0;
+ pageIndex:number=0;
+ pageSize:number=24;
+ todayNum:number=0;
+ todayNumCopy:number=0;
 
   subject:any;
   constructor(private fs:FoodService, 
@@ -26,25 +32,27 @@ export class HomeComponent implements OnInit {
      ){}
 
   ngOnInit(): void {
-    var data1 = {
-      pageSize: 24,
-      pageNumber: 1,
-      search : {}
-  }
-  var localToken =  this.getTokenFromLocalStorage()
-   this.postData(String(localToken),data1);
+   this.GetListData();
   }
  
   getTokenFromLocalStorage(): string | null {
     return localStorage.getItem(`${KEY_TOKEN}`);
   }
 
-  postData(token:string,data:any){
+/* Lấy danh sách bài viết */
+  GetListData(){
+    var dataJson = {
+      pageSize: this.pageSize,
+      pageIndex: this.pageIndex,
+      search : {}
+  }
+  var localToken =  this.postService.getTokenFromLocalStorage();
     const url = 'https://viettienhung.com/reading/search';
-     this.postService.postDataWithToken(url,data,token).subscribe((res:any)=>{
+     this.postService.API_Post(url,dataJson,String(localToken)).subscribe((res:any)=>{
        this.posts = res.data.items;
+       this.totalCount = res.data.totalCount;
     })
-    // xử lý dữ liệu
+    // xử lý dữ liệu khi trả về
    this.newlists=  this.posts.map((post)=>{
       const date = new Date(post.createdDate);
       return {...post,createdDate:date}
@@ -64,6 +72,17 @@ export class HomeComponent implements OnInit {
         ariaLabelledBy: 'modal-basic-title',
         scrollable: true
     });
+}
+
+/* Vì pagesize và pageNumber được binding 1-1 với @viewChild 
+   Nên gọi hàm changPage ta chỉ việc gọi listData lại 1 lần là xong
+   KHông cần quan tâm đến các việc bên trong nó làm
+*/
+changePage(){
+  console.log("page change!",this.totalCount);
+  console.log("pageindex", this.pageIndex);
+  console.log("pageSize", this.pageSize);
+  this.GetListData();
 }
 
 

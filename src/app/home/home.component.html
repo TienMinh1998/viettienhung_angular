@@ -37,3 +37,10 @@
     </div>
    </div>
 </div>
+
+<div class="container d-flex justify-content-center">
+    <ngb-pagination [collectionSize]="this.totalCount" 
+    [(page)]="pageIndex" [boundaryLinks]="true"
+    [pageSize]="pageSize"
+    (pageChange)="changePage()"></ngb-pagination>
+  </div>
