@@ -7,4 +7,5 @@ export class Vocabulary{
     pk_QuestionStandard_Id!:number
     meaningEnglish!:string;
     created_on!:Date;
+    audio!:string;
 }

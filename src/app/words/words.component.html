@@ -21,7 +21,10 @@
             <th scope="col">#</th>
             <th scope="col">Từ tiếng anh</th>
             <th scope="col">Nghĩa tiếng việt</th>
-            <th scope="col">thời gian thêm</th>
+            <th scope="col">Thời gian</th>
+            <th scope="col">Ghi chú</th>
+            <th scope="col">Phiên âm</th>
+            <th scope="col">Âm thanh</th>
           </tr>
         </thead>
         <tbody >
@@ -45,8 +48,15 @@
 				/>
               {{item.meaningEnglish}}</td>
             <td>{{item.created_on | date }}</td>
+            <td>{{item.note}}</td>
+            <td>
+              <audio controls><source src="{{item.audio}}" type="audio/mpeg" /></audio>
+            </td>
+            <td>
+              {{item.phonetic}}
+            </td>
           </tr>
-         
+          
         </tbody>
       </table>
       <div class="container d-flex justify-content-center">
