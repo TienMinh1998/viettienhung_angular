@@ -1,9 +1,12 @@
 <div class="dropdown">
-    <button class="dropbtn">chọn khóa học <i class="fa-sharp fa-solid fa-caret-down"></i></button>
-    <div class="dropdown-content">
-      <a href="#">{{name}}</a>
-    </div>
-   <label for="item-input" >Add an item:</label>
-<input type="text" id="item-input" #itemInput>
-<button type="button" (click)="addNewItem(itemInput.value)">Add to parent's list</button>
-  </div>
+  <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-expanded="false">
+    <span>Countries</span>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Australia</a></li>
+    <li><a class="dropdown-item" href="#">India</a></li>
+    <li><a class="dropdown-item" href="#">United States</a></li>
+  </ul>
+</div>

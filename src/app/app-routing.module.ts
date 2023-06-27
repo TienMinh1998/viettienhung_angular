@@ -5,11 +5,16 @@ import { LoginComponent } from './login/login.component';
 import { DetailComponent } from './detail/detail.component';
 import { WordsComponent } from './words/words.component';
 import { TestComponent } from './test/test.component';
+import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '', 
+    component: MainComponent,
+      children: [
+        { path: '', component: HomeComponent }
+      ]
   },
   {
     path: 'login',
@@ -20,7 +25,8 @@ const routes: Routes = [
   },
   {path:"postdetail/:id",component:DetailComponent},
   {path:"words",component:WordsComponent},
-  {path:"test", component:TestComponent}
+  {path:"test", component:TestComponent},
+  {path:"home",component:HomeComponent}
 ];
 
 @NgModule({

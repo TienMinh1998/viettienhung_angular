@@ -1,0 +1,8 @@
+
+li a:hover{
+    opacity: 0.9;
+}
+
+ul li {
+    list-style-type: none;
+}

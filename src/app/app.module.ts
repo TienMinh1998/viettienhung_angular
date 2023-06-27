@@ -33,6 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DasboardOverviewComponent } from './components/dasboard-overview/dasboard-overview.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddvocabularyComponent } from './words/addvocabulary/addvocabulary.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { HeadertopComponent } from './components/headertop/headertop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,8 @@ import { AddvocabularyComponent } from './words/addvocabulary/addvocabulary.comp
     MainComponent,
     DasboardOverviewComponent,
     AddvocabularyComponent,
+    CarouselComponent,
+    HeadertopComponent,
   ],
   imports: [
     BrowserModule,

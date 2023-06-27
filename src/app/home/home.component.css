@@ -1,7 +1,4 @@
 
-li a:hover{
-    opacity: 0.9;
-}
 .list-product{
     display: flex;
     justify-content: flex-start;
@@ -31,15 +28,11 @@ li a:hover{
 }
 
 .text-title{
-    word-wrap: break-word;
-    white-space: normal;
-    overflow: hidden;
-    display: -webkit-box;
     text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-height: 14px;
-    font-size: .75rem;
+    overflow: hidden; 
+    width: 160px; 
+    height: 1.2em; 
+    white-space: nowrap;
 }
 
 .image{
@@ -59,13 +52,6 @@ li a:hover{
     cursor: pointer;
  }
  
-
-.intro{
-    margin: 20px 0;
-    width: 100%;
-   text-align: center;
-}
-
 .text-intro{
     text-align: center;
     font-size: 50px;
@@ -96,9 +82,9 @@ li a:hover{
   display: block;
 }
 
-/* Slider */
-.slider{
-    position: relative;
-    padding-top: 30%;
-    background: url("/assets/ronaldo.png") top center / cover no-repeat;
+.companyName{
+    opacity: 0.7;
+    margin-top: -20px;
+    font-size: 10px;
+    color: #333;
 }

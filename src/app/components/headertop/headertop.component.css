@@ -1,0 +1,39 @@
+main{
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li{
+    margin: 0 3px;
+    float: left;
+    list-style-type: none;
+    line-height: 36px;
+    padding: 0 5px;
+}
+
+ul{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+ul li:hover{
+    background-color:red;
+    font-weight: bold;
+}
+
+.icon{
+    margin: 0 3px;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: beige;
+    font-weight: bold;
+}
+
+.right{
+    position: relative;
+    right: 0px;
+}

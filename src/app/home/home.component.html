@@ -1,26 +1,27 @@
 
-<div class="container-fluid slider">
-    <div class="text-content">
-        <div class="text-heading">
-            IELTS 8.0 IN THE FUTURE
-        </div>
-        <div class="text-description">
-            @VietTienHungCompany
-        </div>
-    </div>
-</div>
-<div class="intro">
-   
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Tìm kiếm bài viết" >
-      </mat-form-field>
-    <button  mat-raised-button color="accent" (click)="openFormChild($event)">Thêm bài viết</button>
-</div>
-<div class="container font-weight-bold ">
+<div class="container font-weight-bold text-center mt-3">
     <h1 >DANH SÁCH CÁC BÀI VIẾT</h1>
+    <h1 class="companyName">@viettienhung.company.com</h1>
 </div>
 
 <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="row d-flex justify-content-between pb-1">
+        <div class="col-sm-12 col-md-2 d-flex justify-content-start" >
+            <select #mySelect class="form-select form-select-sm" aria-label=".form-select-sm example"  (change)="onSelected(mySelect.value)" >
+                <option *ngFor="let opt of options; let i= index;" 
+                   [value]="i"
+                   >
+                 {{opt}} 
+            </option>
+              </select>
+        </div>
+
+        <div class="col-sm-12 col-md-4 d-flex justify-content-end">
+            <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="GetListData()">Tìm kiếm</button>
+            <button  mat-raised-button color="primary" (click)="openFormChild($event)">Thêm bài viết</button>
+        </div>
+      
+    </div>
    <div class="row">
     <div *ngFor="let post of posts; let newpost of newlists" class="col-sm-6 col-md-4 col-lg-2">
         <div class="product-item-inside">
@@ -33,6 +34,7 @@
             </div>
             {{newpost.createdDate | dateFormat}}
             <ngb-rating [rate]="post.band"></ngb-rating>
+            <span [ngClass]="bgSuccess"><i class="fa-solid fa-check m-1"></i>Đã học</span>
         </div>
     </div>
    </div>
@@ -43,4 +45,4 @@
     [(page)]="pageIndex" [boundaryLinks]="true"
     [pageSize]="pageSize"
     (pageChange)="changePage()"></ngb-pagination>
-  </div>
+</div>

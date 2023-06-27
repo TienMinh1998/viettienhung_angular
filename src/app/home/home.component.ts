@@ -13,6 +13,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+bgSuccess:string = 'badge bg-success';
+bgDangger:string = 'badge bg-danger';
+
+
+
   currentRate = 8;
   posts:PostModel[] = [];
   newlists:PostModel[] = [];
@@ -22,7 +28,8 @@ export class HomeComponent implements OnInit {
  pageSize:number=24;
  todayNum:number=0;
  todayNumCopy:number=0;
-
+ options:string[] = ['Tất cả','writing','Tiếng anh', 'Từ vựng']
+ type!:number;
   subject:any;
   constructor(private fs:FoodService, 
     private postService:PostService,
@@ -44,7 +51,9 @@ export class HomeComponent implements OnInit {
     var dataJson = {
       pageSize: this.pageSize,
       pageIndex: this.pageIndex,
-      search : {}
+      search : {
+        type:this.type
+      }
   }
   var localToken =  this.postService.getTokenFromLocalStorage();
     const url = 'https://viettienhung.com/reading/search';
@@ -83,6 +92,11 @@ changePage(){
   console.log("pageindex", this.pageIndex);
   console.log("pageSize", this.pageSize);
   this.GetListData();
+}
+
+onSelected(value:any){
+ this.type = value;
+
 }
 
 
