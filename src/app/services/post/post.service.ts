@@ -32,7 +32,8 @@ export class PostService {
   postDataWithToken(url: string, data: any, token: string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'Accept' : 'application/json'
     });
 
     return this.http.post(url, data, { headers });
@@ -43,9 +44,19 @@ export class PostService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-
     return this.http.post(url, data, { headers });
   }
+
+
+  API_POST_FORMDATA(url: string, data: FormData, token: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(url, data, { headers });
+  }
+
+
 
   API_put(url: string, data: any, token: string) {
     const headers = new HttpHeaders({
