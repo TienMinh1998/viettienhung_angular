@@ -1,0 +1,35 @@
+/* CSS CHO TOÀN DỰ ÁN */
+/* Button dung trong toàn dự án */
+
+.vth-button{
+    padding: 5px;
+    border: none;
+    background-color: black;
+    color: antiquewhite;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid whitesmoke;
+}
+
+.vth-button:hover{
+   border: 1px solid antiquewhite;
+   background-color: #db6900;
+}
+
+/* CSS cho div toàn bộ dự án */
+
+.center{
+    justify-content: center;
+}
+
+.right{
+    justify-content: end;
+}
+
+.left{
+    justify-content: start;
+}
+
+.vth-d-flex{
+    display: flex;
+}

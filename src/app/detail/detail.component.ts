@@ -16,6 +16,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class DetailComponent implements OnInit {
+
+  isSave:boolean = false;
   id :number = 0;
   post:PostModel = new PostModel();
   phrases :phraseModel[] = [];
@@ -179,6 +181,7 @@ tranlateVisible = false;
 
 displayEditer()
 {
+  this.isSave = true;
   this.isEditterVisible=!this.isEditterVisible;
 }
 

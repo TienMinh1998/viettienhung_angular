@@ -1,48 +1,83 @@
-
 <div class="container font-weight-bold text-center mt-3">
-    <h1 >DANH SÁCH CÁC BÀI VIẾT</h1>
+    <h1>DANH SÁCH CÁC BÀI VIẾT</h1>
     <h1 class="companyName">@viettienhung.company.com</h1>
 </div>
 
-<div class="container shadow-lg p-3 mb-5 bg-white rounded">
-    <div class="row d-flex justify-content-between pb-1">
-        <div class="col-sm-12 col-md-2 d-flex justify-content-start" >
-            <select #mySelect class="form-select form-select-sm" aria-label=".form-select-sm example"  (change)="onSelected(mySelect.value)" >
-                <option *ngFor="let opt of options; let i= index;" 
-                   [value]="i"
-                   >
-                 {{opt}} 
-            </option>
-              </select>
+<!--Bảng điều khiển-->
+<div class="container shadow-lg p-1 mb-3 bg-white rounded">
+    <div class="row d-flex justify-content-between p-1">
+        <div class="col-sm-12 col-md-3">
+            
+        </div>
+        <div class="col-sm-12 col-md-6 d-flex justify-content-end">
+           
+        </div>
+    </div>
+</div>
+<!--End bảng điều khiển-->
+
+
+<!--Bảng điều khiển-->
+<div class="container shadow-lg p-1 mb-3 bg-white rounded">
+    <div class="row d-flex justify-content-between p-1">
+
+          <!-- PHẦN THANH CHỌN LOẠI KHÓA BÀI VIẾT -->
+
+        <div class="col-sm-12 col-md-3">
+            <select #mySelect class="form-select form-select-sm" aria-label=".form-select-sm example"
+                (change)="onSelected(mySelect.value)">
+                <option *ngFor="let opt of options; let i= index;" [value]="i">
+                    {{opt}}
+                </option>
+            </select>
         </div>
 
-        <div class="col-sm-12 col-md-4 d-flex justify-content-end">
-            <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="GetListData()">Tìm kiếm</button>
-            <button  mat-raised-button color="primary" (click)="openFormChild($event)">Thêm bài viết</button>
+            <!-- PHẦN NÚT-->
+        <div class="col-sm-12 col-md-6 d-flex justify-content-end">
+            <button class="vth-button" (click)="openFormChild($event)">Thêm bài viết</button>
         </div>
-      
     </div>
-   <div class="row">
-    <div *ngFor="let post of posts; let newpost of newlists" class="col-sm-6 col-md-4 col-lg-2">
-        <div class="product-item-inside">
-            <a class="image">
-                <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image"
-                    (click)="GoDetail(post.id)">
-            </a>
-            <div class="text-title">
-                {{post.title}}
+</div>
+<!--End bảng điều khiển-->
+
+
+<!--DANH SÁCH CÁC BÀI VIẾT-->
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="row d-flex justify-content-between pb-1">
+        <div class="col-sm-12 col-md-2 d-flex justify-content-start">
+
+        </div>
+
+
+
+    </div>
+    <div class="row">
+        <div *ngFor="let post of posts;" class="col-sm-6 col-md-4 col-lg-2">
+            <div class="product-item-inside">
+                <a class="image">
+                    <img class="image_img" width="100%" height="100%" src="{{post.image}}" alt="food image"
+                        (click)="GoDetail(post.id)">
+                </a>
+                <div class="text-title">
+                    {{post.title}}
+                </div>
+                {{post.createdDate | dateFormat}}
+                <ngb-rating [rate]="post.band"></ngb-rating>
+                <br>
+                <span class="postStatus" [ngClass]="bgSuccess"><i
+                        class="fa-solid fa-check m-1"></i>{{post.status}}</span>
+                <button class="vth-button" (click)="deletePost(post.id)">
+                    <i class="fa-solid fa-trash-can"></i>
+                    Xóa
+                </button>
             </div>
-            {{newpost.createdDate | dateFormat}}
-            <ngb-rating [rate]="post.band"></ngb-rating>
-            <span [ngClass]="bgSuccess"><i class="fa-solid fa-check m-1"></i>Đã học</span>
         </div>
     </div>
-   </div>
 </div>
 
 <div class="container d-flex justify-content-center">
-    <ngb-pagination [collectionSize]="this.totalCount" 
-    [(page)]="pageIndex" [boundaryLinks]="true"
-    [pageSize]="pageSize"
-    (pageChange)="changePage()"></ngb-pagination>
+    <ngb-pagination [collectionSize]="this.totalCount" [(page)]="pageIndex" [boundaryLinks]="true" [pageSize]="pageSize"
+        (pageChange)="changePage()"></ngb-pagination>
 </div>
+
+<button (click)="showData()">show data</button>

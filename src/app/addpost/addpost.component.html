@@ -2,7 +2,18 @@
 <div class="card-body">
     <form [formGroup]="reactiveForm" (ngSubmit)="AddPost()">
         <div class="title"> ADD NEW POST</div>
-
+        <div class="d-flex justify-content-center">
+            <div id="image_border" class="">
+                <img id="image" width="100%" height="100%" id="blah" [src]="imagePreview || 'http://placehold.it/180'" alt="Post Image" />
+                <input style="display: none;" #fileInput type="file" class="file-upload" formControlName="file" (change)="onChangeFile($event)">
+                <button id="btn_upload" mat-mini-fab color="primary" (click)="choseFilebtn()" aria-label="Example icon button with a menu icon">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                  </button>
+            </div>
+        </div>
+       
+        
+        <br>
         <label>Tiêu đề của bài viết (<span class="text-danger">*</span>): </label>
         <input type="text" formControlName="title"  placeholder="Enter title...">
         <span class="text-danger" *ngIf="title && title.invalid && title.touched">Nhập tiêu đề của bài viết!</span>
@@ -14,8 +25,10 @@
         <span class="text-danger" *ngIf="subtitle && subtitle.invalid && subtitle.touched">Bạn phải nhập nghĩa của tiêu đề!</span>
         <br>
          
-        <img id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
-        <input type="file" class="file-upload" formControlName="file" (change)="onChangeFile($event)">
+       
+
+       
+
 
        <div  class="form-group">
         <button 

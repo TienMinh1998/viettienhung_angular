@@ -7,6 +7,8 @@ import {API_BASE_URL, KEY_TOKEN} from 'src/app/config/apiConfig'
   providedIn: 'root'
 })
 export class PostService {
+ testData:string= 'my data default'
+ typeOfpost:String | null='';
 
   constructor(
     private http:HttpClient
@@ -47,13 +49,23 @@ export class PostService {
     return this.http.post(url, data, { headers });
   }
 
-
-  API_POST_FORMDATA(url: string, data: FormData, token: string) {
+  API_Delete(url: string) {
+    const token = String(this.getTokenFromLocalStorage());
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.post(url, data, { headers });
+    return this.http.delete(url,{headers});
+   
+  }
+
+
+  API_POST_FORMDATA(url: string, data: FormData, token: string) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post(`${API_BASE_URL}/${url}`, data, { headers });
   }
 
 

@@ -9,15 +9,19 @@
   <div class="col-md-12" *ngIf="!isloading">
     <div class="title d-none d-sm-block shadow-lg p-3 mb-5 bg-white rounded mt-2">
       {{post.title}}
-      <button mat-stroked-button color="primary" (click)="displayEditer()">
+      
+    </div>
+    <div class="vth-d-flex right">
+      <button *ngIf="!isSave" class="vth-button" (click)="displayEditer()">
         <i class="fa-solid fa-pen-to-square"></i>
-        Edit</button>
-      <button mat-stroked-button color="warn" (click)="SavePost()">
+        Sửa</button>
+      <button *ngIf="isSave" class="vth-button" (click)="SavePost()">
         <i class="fa-regular fa-floppy-disk"></i>
-        Save</button>
-      <button mat-raised-button color="accent" (click)="open(id)">
+        Lưu</button>
+      <button class="vth-button" (click)="open(id)">
         <i class="fa-regular fa-floppy-disk"></i>
-        Add Word</button>
+        Thêm từ</button>
+        <button class="vth-button" (click)="showTranlate()">Xem bản dịch</button>
     </div>
     <div class="row">
       <div class="col-md-12 d-flex justify-content-center" *ngIf="!isEditterVisible">
@@ -31,10 +35,6 @@
         <div *ngIf="!isEditterVisible" class="content" [innerHTML]="someHtmlCode"></div>
         <div *ngIf="isEditterVisible" class="title-table">Chỉnh sửa tiếng anh:</div>
         <div *ngIf="isEditterVisible" class="editer" [ngxSummernote]="configNgxSummernote" [(ngModel)]="binDataPost">
-        </div>
-
-        <div class="container d-flex justify-content-center mt-1 mb-2">
-          <button mat-stroked-button color="primary" (click)="showTranlate()">Xem bản dịch</button>
         </div>
         <!--Phần tiếng việt-->
         <div *ngIf="tranlateVisible">
