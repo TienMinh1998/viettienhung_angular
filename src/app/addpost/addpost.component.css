@@ -54,6 +54,7 @@ input[type=text], select {
   width: 25px;
   height: 25px;
  }
+ 
  #image_border{
   border-radius: 10px;
   padding: 0;
