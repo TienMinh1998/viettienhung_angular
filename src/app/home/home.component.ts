@@ -152,6 +152,10 @@ onSelected(value:any){
 }
 
 deletePost(id:number){
+  if(!confirm("Bạn có muốn xóa bài viết này không")) {
+    return;
+  }
+
   const url = `${API_BASE_URL}/reading/${id}`
   this.postService.API_Delete(url).subscribe((res:any)=>{
     console.log(res);
