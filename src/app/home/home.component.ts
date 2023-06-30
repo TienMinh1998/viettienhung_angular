@@ -28,7 +28,7 @@ bgDangger:string = 'badge bg-danger';
  pageSize:number=24;
  todayNum:number=0;
  todayNumCopy:number=0;
- options:string[] = ['Tất cả','writing','Tiếng anh', 'Từ vựng','Ngữ pháp']
+ options:string[] = ['Tất cả','writing','General', 'Vocabulary','Grammar','listening','Speaking','Tech (IT)']
  type!:string | null;
   subject:any;
  

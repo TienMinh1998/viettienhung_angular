@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Run Docker container on server 
+
+- Khi sử lại các cấu hình trong
+docker build -f  Dockerfile -t viettienhung_angular .
+docker container stop viettienhung_angular_container
+docker container rm viettienhung_angular_container
+docker run -it -d --name viettienhung_angular_container -p 8055:80 viettienhung_angular
+
