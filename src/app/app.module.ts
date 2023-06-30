@@ -35,6 +35,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddvocabularyComponent } from './words/addvocabulary/addvocabulary.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeadertopComponent } from './components/headertop/headertop.component';
+import { HeaderItemComponent } from './components/header-item/header-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { HeadertopComponent } from './components/headertop/headertop.component';
     AddvocabularyComponent,
     CarouselComponent,
     HeadertopComponent,
+    HeaderItemComponent,
   ],
   imports: [
     BrowserModule,

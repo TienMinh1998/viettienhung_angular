@@ -1,31 +1,45 @@
 
 <app-header></app-header>
-<div class="container">
-    <div class="row text-center m-3">
-      <div class="col-sm-12 col-md-4 col-lg-4 info d-flex justify-content-center">
-        <app-dasboard-overview  [number]="todayNum"[text]="'Hôm nay'"></app-dasboard-overview>
-        <app-dasboard-overview  [number]="totalCount"[text]="'Tổng số từ đã thêm'" ></app-dasboard-overview>
-       
-      </div>
 
-      
-      <div class="col-sm-12 col-md-3 col-lg-3 info d-flex justify-content-center align-items-center"
-      matTooltip="Thêm từ mới vào khu chứa từ."
-      >
-        <button class="vth-button" (click)="openFormChild($event)" target="_blank">Admin-add-vocabulary</button>
-      </div>
-      
+
+
+<div class="container">
+
+  <div class="row header_text text-center">
+    <div>
+      <h1>IELTS 8.0 INTHE FUTURE</h1>
+      <span>Nguyễn Viết Minh Tiến</span>
     </div>
-    
+  </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-4 d-flex">
+        <div style="margin: 5px 5px 5px 0px;">
+          <app-dasboard-overview  [number]="todayNum"[text]="'Hôm nay'"></app-dasboard-overview>
+        </div>
+      
+       <div style="margin: 5px 5px 5px 0px;">
+        <app-dasboard-overview  [number]="totalCount"[text]="'Tổng số từ đã thêm'" ></app-dasboard-overview>
+       </div>
+      </div>
+    </div>
+     <div>
+       
+      <div class="col-sm-12 mb-1 " matTooltip="Thêm từ mới vào khu chứa từ.">
+        <button class="vth-button" (click)="openFormChild($event)" target="_blank">
+          <i class="fa-solid fa-circle-plus"></i>
+          Admin-add-vocabulary</button>
+      </div>
+     </div>
     <table class="table table-striped">
         <thead>
-          <tr >
-            <th scope="col">#</th>
-            <th scope="col">Từ tiếng anh</th>
-            <th scope="col">Nghĩa tiếng việt</th>
-            <th scope="col">Thời gian</th>
-            <th scope="col">Ghi chú</th>
-            <th scope="col">Âm thanh</th>
+          <tr id="header_table">
+            <th class="th" scope="col">STT</th>
+            <th class="th" scope="col">Từ tiếng anh</th>
+            <th class="th" scope="col">Nghĩa tiếng việt</th>
+            <th class="th" scope="col">Thời gian</th>
+            <th class="th" scope="col">Ghi chú</th>
+            <th  class="th" scope="col">Âm thanh</th>
           </tr>
         </thead>
         <tbody >
@@ -33,15 +47,15 @@
            matTooltip="Phiên âm : {{item.phonetic}},  Lưu ý : {{item.note}}" 
            [matTooltipPosition]="'above'"
            >
-            <th scope="row">{{i+1+(pageindex-1)*24}}</th>
-            <td>
+            <th style="vertical-align: middle;" scope="row">{{i+1+(pageindex-1)*24}}</th>
+            <td class="td_english">
               <img
 					[src]="'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg'"
-					class="me-2"
+					class="me-2 "
 					style="width: 20px"
 				/>
               {{item.english}}</td>
-            <td>
+            <td class="td_english_v">
               <img
 					[src]="'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg'"
 					class="me-2"
@@ -50,11 +64,11 @@
               {{item.meaningEnglish}}</td>
             <td>{{item.created_on | date }}</td>
             <td>{{item.note}}</td>
-            <td *ngIf="item.audio !=null">
-              <audio controls><source src="{{item.audio}}" type="audio/mpeg" /></audio>
+            <td *ngIf="item.audio !=null" style="vertical-align: middle;">
+              <i id="audioIcon" class="fa-solid fa-volume-high fa-lg" (click)="emitAudio(item.audio)"></i>
             </td>
             <td *ngIf="item.audio ==null">
-               <div class="text-center text-danger">Chưa có file âm thanh</div>
+              <i  class="fa-solid fa-volume-xmark fa-lg"></i>
             </td>
           </tr>
           

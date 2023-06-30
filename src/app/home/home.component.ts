@@ -29,6 +29,50 @@ bgDangger:string = 'badge bg-danger';
  todayNum:number=0;
  todayNumCopy:number=0;
  options:string[] = ['Tất cả','writing','General', 'Vocabulary','Grammar','listening','Speaking','Tech (IT)']
+ headeritems = [
+  {
+    text : 'Dictionary (Từ điển)',
+    image: '/assets/dictionary_header_cam.png',
+    href: 'https://dictionary.cambridge.org/'
+  },
+  {
+    text : 'Dictionary (Từ điển)',
+    image: '/assets/dictionary_header.png',
+    href: 'https://www.vocabulary.com/dictionary/'
+  },
+  {
+    text : 'Vocabulary (Từ vựng)',
+    image: '/assets/vocabulary_header.png',
+    href: 'words'
+  },
+  {
+    text : 'Grammar (Ngữ pháp)',
+    image: '/assets/grammar_header.png',
+    href: 'words'
+  },
+  {
+    text : 'Listening (Nghe)',
+    image: '/assets/listening_header.png',
+    href: 'https://www.newsinlevels.com/'
+  },
+  {
+    text : 'Posts (Bài viết)',
+    image: '/assets/posts_header.png',
+    href: 'home'
+  },
+  {
+    text : 'News (Tin Tức)',
+    image: '/assets/news_header.png',
+    href: 'words'
+  },
+  {
+    text : 'Tip (Tiện ích)',
+    image: '/assets/tip_header.png',
+    href: 'words'
+  }
+ ]
+
+
  type!:string | null;
   subject:any;
  
@@ -129,5 +173,11 @@ deletePost(id:number){
 showData(){
   console.log("Home log",this.postService.testData);
 }
+
+
+getHref(){
+  console.log("click parent OK");
+}
+
 
 }

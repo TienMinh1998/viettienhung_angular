@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PostService } from '../services/post/post.service';
 import { Vocabulary } from '../shared/models/vocabularyModel';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +11,7 @@ import { AddvocabularyComponent } from './addvocabulary/addvocabulary.component'
   styleUrls: ['./words.component.css']
 })
 export class WordsComponent implements OnInit {
-
+  @ViewChild('audioPlayer') audioPlayer!: ElementRef;
   vocabularies:Vocabulary[]= [];
   totalCount:number = 0;
   pageindex:number=0;
@@ -82,5 +82,10 @@ export class WordsComponent implements OnInit {
         this.todayNumCopy +=1;
       }
      })
+   }
+
+   emitAudio(audiolink:string){
+    const clickSound = new Audio(audiolink);
+    clickSound.play();
    }
 }

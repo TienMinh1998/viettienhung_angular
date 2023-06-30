@@ -1,0 +1,30 @@
+.wrap{
+    height: 120px;
+    width: 120px;
+    padding: 10px;
+    border-right: 1px solid #DDD;
+    display: flex;
+    text-align: center; 
+    justify-content: center;
+    border: 1px solid white;
+    border-right: 2px solid white;
+}
+
+.main{
+    text-align: center;
+}
+
+.text{
+   margin-top: 6px;
+}
+.wrap:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    border: 1px solid #CCC;
+    border-right: 2px solid #CCC;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
