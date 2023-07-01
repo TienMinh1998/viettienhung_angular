@@ -36,6 +36,7 @@
           <tr id="header_table">
             <th class="th" scope="col">STT</th>
             <th class="th" scope="col">Từ tiếng anh</th>
+            <th class="th" scope="col">Phiên âm</th>
             <th class="th" scope="col">Nghĩa tiếng việt</th>
             <th class="th" scope="col">Thời gian</th>
             <th class="th" scope="col">Ghi chú</th>
@@ -49,12 +50,8 @@
            >
             <th style="vertical-align: middle;" scope="row">{{i+1+(pageindex-1)*24}}</th>
             <td class="td_english">
-              <img
-					[src]="'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg'"
-					class="me-2 "
-					style="width: 20px"
-				/>
               {{item.english}}</td>
+            <td>{{item.phonetic}}</td>
             <td class="td_english_v">
               <img
 					[src]="'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg'"
