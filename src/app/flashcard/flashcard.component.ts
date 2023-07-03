@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Vocabulary } from '../shared/models/vocabularyModel';
 import { ToastrService } from 'ngx-toastr';
 
@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './flashcard.component.html',
   styleUrls: ['./flashcard.component.css']
 })
-export class FlashcardComponent implements OnInit {
+export class FlashcardComponent implements OnInit, AfterViewInit {
   @ViewChild('audioPlayer') audioPlayer!: ElementRef;
   nonHidenClass = "btn btn-outline-success m-1 key";
   hiddenClass = "btn btn-outline-success m-1 hidden key";
@@ -18,7 +18,15 @@ export class FlashcardComponent implements OnInit {
   vocabulary = this.vocabularies[0];
   options:string[] = ['Tất cả','Hôm nay']
   constructor(private toastr:ToastrService){}
+  ngAfterViewInit(): void {
+    console.log('before af ', this.vocabularies)
+    const voca = this.vocabularies[0] ;     
+     console.log('current : ',voca)
+  }
   ngOnInit(): void {
+    console.log('before ', this.vocabularies)
+    const voca = this.vocabularies[0] ;     
+     console.log('current : ',voca)
   }
 
   myArray:any[] = []
@@ -61,6 +69,7 @@ export class FlashcardComponent implements OnInit {
       this.currentWord = ''
       this.index = this.index +1;
       this.vocabulary = this.vocabularies[this.index];
+      console.log('after next:', typeof(this.vocabularies))
       this.keys = this.vocabulary.split('');
       this.arrayClasHiden = Array(this.keys.length).fill(this.nonHidenClass);
       this.keys = this.shuffle(this.keys)
@@ -69,21 +78,17 @@ export class FlashcardComponent implements OnInit {
          text :res,
          class : this.nonHidenClass
         }
-      
       });
       this.toastr.success('Tiếp tục nhé', 'Thông báo');
      }else {
-      console.log('Không đúng')
+      this.toastr.error('Sai rồi,Thử lại nhé', 'Thông báo');
      }
    }
-   onSelected(value:any){
- 
-   }
+   
 
    emitAudio(){
     const audio = this.audios[this.index];
     const clickSound = new Audio(audio);
-    console.log(audio)
     clickSound.play();
    }
 }
