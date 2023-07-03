@@ -12,6 +12,13 @@
     </div>
   </div>
 
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-sm-4">
+        <app-flashcard [vocabularies]="vocabularies_text" [audios]="vocabularies_audio">
+        </app-flashcard>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12 col-md-4 d-flex">
         <div style="margin: 5px 5px 5px 0px;">
@@ -29,6 +36,9 @@
         <button class="vth-button" (click)="openFormChild($event)" target="_blank">
           <i class="fa-solid fa-circle-plus"></i>
           Admin-add-vocabulary</button>
+          <button class="vth-button" (click)="openFlashCard($event)" target="_blank">
+            <i class="fa-solid fa-circle-plus"></i>
+            Học bằng flascard</button>
       </div>
      </div>
     <table class="table table-striped">

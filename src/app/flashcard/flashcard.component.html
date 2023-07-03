@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="audio">
+        <i id="audioIcon" class="fa-solid fa-volume-high fa-xl" (click)="emitAudio()"></i>
+    </div>
+    <div class="wrap">
+        <img class="card-img-top" src="/assets/dictionary_header.png" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">********</h5>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">.<i class="fa-solid fa-question"></i></span>
+            </div>
+            <input #filtername type="text" class="form-control" placeholder="Điền từ..." aria-label="Username"
+                aria-describedby="basic-addon1" name="filtername" [ngModel]="currentWord">
+        </div>
+        <button class="btn btn-danger m-1 btn-sm"><i class="fa-solid fa-eraser"></i></button>
+        <button class="btn btn-danger m-1 btn-sm" (click)="remove()"><i class="fa-solid fa-trash-can"></i></button>
+        <button class="btn btn-danger m-1 btn-sm"><i class="fa-regular fa-circle-question"></i></button>
+        <button class="btn btn-primary m-1 btn-sm" (click)="onNext()"><i class="fa-solid fa-forward"></i></button>
+        <div class="mt-2">
+
+        </div>
+        <button *ngFor="let item of myArray; let i = index" [ngClass]="item.class"
+            (click)="AddKey(i)">{{item.text}}</button>
+    </div>
+</div>

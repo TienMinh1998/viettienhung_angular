@@ -1,0 +1,32 @@
+.hidden{
+    visibility: hidden;
+}
+
+.header_text{
+    font-family: 'Roboto', sans-serif;
+}
+
+.key{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.wrap{
+    padding: 20px;
+
+}
+
+.key:hover{
+    background-color: #db6900
+}
+
+.audio{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.audio:hover{
+    margin-top: 5px;
+    color: #db6900;
+    cursor: pointer;
+}

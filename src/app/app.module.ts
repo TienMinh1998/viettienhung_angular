@@ -36,6 +36,7 @@ import { AddvocabularyComponent } from './words/addvocabulary/addvocabulary.comp
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeadertopComponent } from './components/headertop/headertop.component';
 import { HeaderItemComponent } from './components/header-item/header-item.component';
+import { FlashcardComponent } from './flashcard/flashcard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { HeaderItemComponent } from './components/header-item/header-item.compon
     CarouselComponent,
     HeadertopComponent,
     HeaderItemComponent,
+    FlashcardComponent,
   ],
   imports: [
     BrowserModule,

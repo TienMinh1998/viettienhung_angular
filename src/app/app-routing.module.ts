@@ -6,6 +6,7 @@ import { DetailComponent } from './detail/detail.component';
 import { WordsComponent } from './words/words.component';
 import { TestComponent } from './test/test.component';
 import { MainComponent } from './main/main.component';
+import { FlashcardComponent } from './flashcard/flashcard.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:"postdetail/:id",component:DetailComponent},
   {path:"words",component:WordsComponent},
   {path:"test", component:TestComponent},
-  {path:"home",component:HomeComponent}
+  {path:"home",component:HomeComponent},
+  {path:"flashcard", component:FlashcardComponent}
 ];
 
 @NgModule({

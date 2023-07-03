@@ -3,6 +3,7 @@ import { PostService } from '../services/post/post.service';
 import { Vocabulary } from '../shared/models/vocabularyModel';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddvocabularyComponent } from './addvocabulary/addvocabulary.component';
+import { FlashcardComponent } from '../flashcard/flashcard.component';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { AddvocabularyComponent } from './addvocabulary/addvocabulary.component'
 export class WordsComponent implements OnInit {
   @ViewChild('audioPlayer') audioPlayer!: ElementRef;
   vocabularies:Vocabulary[]= [];
+  vocabularies_text :string[] = [];
+  vocabularies_audio:string[] = [];
   totalCount:number = 0;
   pageindex:number=0;
   pagesize:number=24;
@@ -41,6 +44,14 @@ export class WordsComponent implements OnInit {
   const url = "https://viettienhung.com/QuestionStandard/AllQuestion";
    this.postService.API_Post(url,dataJson,String(token)).subscribe((res:any)=>{
    this.vocabularies = res.data.items;
+   this.vocabularies.forEach(x=>{
+    this.vocabularies_text.push(x.english)
+    this.vocabularies_audio.push(x.audio)
+   })
+   console.log(this.vocabularies_text)
+
+
+
    this.totalCount = res.data.totalCount;
    this.todayNumCopy =0;
    this.CountVocabularyForToday();
@@ -70,6 +81,25 @@ export class WordsComponent implements OnInit {
       this.getVocabulary();
     })
   }
+
+
+  openFlashCard(content: any) {
+    console.log(content);
+    const modalRef = this.modalService.open(FlashcardComponent, {
+        size: "md",
+        centered: true,
+        ariaLabelledBy: 'modal-basic-title',
+        scrollable: true
+    });
+    modalRef.result.then(()=>{
+      console.log('Add OK')
+    }).catch(()=>{
+      this.getVocabulary();
+    })
+  }
+
+
+
  // đếm số từ vựng ngày hôm nay tạo được
    CountVocabularyForToday(){
     this.vocabularies.forEach((item)=>{
