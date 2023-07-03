@@ -3,7 +3,7 @@
     stages{
         stage("Clone github"){
             steps{
-                 git 'https://github.com/TienMinh1998/viettienhung_angular.git'
+                 git clone 'https://github.com/TienMinh1998/viettienhung_angular.git'
             }
         }
     }
