@@ -7,20 +7,26 @@
             }
         }
         stage('build image') {
-                 // build project : 
-                 sh 'docker build -f  Dockerfile -t viettienhung_angular .'
+                  steps{
+                         sh 'docker build -f  Dockerfile -t viettienhung_angular .'
+                  }
         }
          stage('Stop old-container') {
-                 // build project : 
-                 sh 'docker container stop viettienhung_angular_container'
+                  steps{
+                        sh 'docker container stop viettienhung_angular_container'
+                  }
+                
         }
         stage('Delete old-container') {
-                 // build project : 
-                 sh 'docker container rm viettienhung_angular_container'
+             steps{
+                    sh 'docker container rm viettienhung_angular_container'
+                  }
+               
         }
-          stage('Delete old-container') {
-                 // build project : 
-                 sh 'docker run -it -d --name viettienhung_angular_container -p 127.0.0.1:8055:80 viettienhung_angular'
+          stage('Publish and maping port') {
+             steps{
+                          sh 'docker run -it -d --name viettienhung_angular_container -p 127.0.0.1:8055:80 viettienhung_angular'
+                  }
         }
     }
 }
