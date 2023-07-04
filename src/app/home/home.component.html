@@ -1,16 +1,24 @@
+<a target="_blank" href="https://www.facebook.com/TMN7777/">
+    <div class="message">
+        <span> Liên hệ : </span>
+        <img width="45px" height="45px" src="/assets/message.png">
+
+    </div>
+</a>
 
 <div class="container-fluid">
-    <app-chart [items] ="items" [categories]="categories"></app-chart>
+    <app-chart [items]="items" [categories]="categories"></app-chart>
     <h1 class="text-center mt-1">
         <span class="text-danger">Nguyễn Viết Minh Tiến</span>
-        - BIỂU ĐỒ TIẾN ĐỘ HỌC TẬP</h1>
-        <hr>
+        - BIỂU ĐỒ TIẾN ĐỘ HỌC TẬP
+    </h1>
+    <hr>
 </div>
 
 <div class="container font-weight-bold text-center mt-3">
     <div class="d-flex justify-content-center">
         <h1 style="font-weight: 400;">FREE TO LEARNING </h1>
-         <span style="line-height: 40px; padding-left: 4px;">for a thriving community</span>
+        <span style="line-height: 40px; padding-left: 4px;">for a thriving community</span>
     </div>
     <h1 class="companyName" style="color: #333">@viettienhung.company.com</h1>
 </div>
@@ -21,15 +29,16 @@
 
 <!--Bảng điều khiển-->
 <div class="container">
-  
+
     <div class="d-flex header_item ">
-        <app-header-item *ngFor="let item of headeritems" [text]="item.text" [imageUrl]="item.image" [href]="item.href" (newItemEvent)="getHref()"></app-header-item>
+        <app-header-item *ngFor="let item of headeritems" [text]="item.text" [imageUrl]="item.image" [href]="item.href"
+            (newItemEvent)="getHref()"></app-header-item>
     </div>
-  
+
     <div class="row d-flex justify-content-between p-1 mt-3">
 
-          <!-- PHẦN THANH CHỌN LOẠI KHÓA BÀI VIẾT -->
-        
+        <!-- PHẦN THANH CHỌN LOẠI KHÓA BÀI VIẾT -->
+
         <div class="col-sm-12 col-md-3">
             <select #mySelect class="form-select form-select-sm" aria-label=".form-select-sm example"
                 (change)="onSelected(mySelect.value)">
@@ -39,7 +48,7 @@
             </select>
         </div>
 
-            <!-- PHẦN NÚT-->
+        <!-- PHẦN NÚT-->
         <div class="col-sm-12 col-md-6 d-flex justify-content-end">
             <button class="vth-button" (click)="openFormChild($event)">Thêm bài viết</button>
         </div>
@@ -53,9 +62,10 @@
 
     <div class="row text-center" style="border-bottom: 2px solid black;">
         <h1>DANH SÁCH BÀI VIẾT</h1>
-        <h3>Để thêm một bài biết mới, vui lòng chọn 1 chủ đề và sau đó ấn thêm nút 
+        <h3>Để thêm một bài biết mới, vui lòng chọn 1 chủ đề và sau đó ấn thêm nút
             <span class="text-danger font-weight-bold">'thêm bài viết'</span>
-            ở bên tay trái</h3>
+            ở bên tay phải
+        </h3>
     </div>
     <div class="row">
         <div *ngFor="let post of posts;" class="col-sm-6 col-md-4 col-lg-2">

@@ -212,28 +212,55 @@ onSelected(value:any){
 }
 
 deletePost(id:number){
-  if(!confirm("Bạn có muốn xóa bài viết này không")) {
-    return;
-  }
-
+  console.log('begin call api')
   const url = `${API_BASE_URL}/reading/${id}`
-  this.postService.API_Delete(url).subscribe((res:any)=>{
-    console.log(res);
-    if (res.status==200) {
+  this.postService.API_Delete(url)
+  .then((response:any) => {
+   // Handle successful response
+        if (response.status==200) {
       // xóa dưới fontend và không cần động đến backend
       const index = this.posts.findIndex((x)=>x.id==id);
       if (index!=-1){
         this.posts.splice(index,1);
       }
-
-      this.toastr.success('Xóa thành công', 'Thông báo');
-      
-    } else {
-      this.toastr.error('Xóa thất bại','Thông báo')
-      console.log(res);
-    }
+    console.log('Delete successful:', response);
+        }
+  })
+  .catch(error => {
+      this.toastr.error("Bạn chưa có quyền xóa bài biết","Thông báo");
   });
 }
+
+
+
+
+// deletePost(id:number){
+//   console.log('OK')
+//   const url = `${API_BASE_URL}/reading/${id}`
+//   this.postService.API_Delete(url).subscribe((res:any)=>{
+//     console.log(res);
+//     if (res.status==401){
+//       this.toastr.error("Bạn chưa được cấp quyền xóa bài viết","Thông báo");
+//     }
+//     if (res.status==200) {
+//       // xóa dưới fontend và không cần động đến backend
+//       const index = this.posts.findIndex((x)=>x.id==id);
+//       if (index!=-1){
+//         this.posts.splice(index,1);
+//       }
+
+//       this.toastr.success('Xóa thành công', 'Thông báo');
+      
+//     } else {
+//       debugger
+//       this.toastr.error('Xóa thất bại','Thông báo')
+//     }
+//   });
+// }
+
+
+
+
 showData(){
   console.log("Home log",this.postService.testData);
 }
