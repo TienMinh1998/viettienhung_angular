@@ -91,6 +91,11 @@ bgDangger:string = 'badge bg-danger';
     text : 'Linking sound (Nối âm)',
     image: '/assets/linking.png',
     href: 'https://www.evaeaston.com/'
+  },
+  {
+    text : 'Chat GPT',
+    image: '/assets/gpt.png',
+    href: 'https://chat.openai.com/'
   }
  ]
 
