@@ -24,9 +24,20 @@ bgDangger:string = 'badge bg-danger';
   currentRate = 8;
   posts:PostModel[] = [];
   report:ReportModel[] = [];
-  seriesData:number[] = [];
   categories:string[] = [];
-
+  items:any[]= [
+    {
+      text:"Từ vựng",
+      seriesData : [],
+      tooltext:"từ vựng",
+      
+    },
+    {
+      text:"Bài viết",
+      seriesData : [],
+      tooltext:"bài viết"
+    }
+  ]
 
  // Dữ liệu để phân trang
  totalCount:number = 0;
@@ -75,6 +86,11 @@ bgDangger:string = 'badge bg-danger';
     text : 'Tip (Tiện ích)',
     image: '/assets/tip_header.png',
     href: 'words'
+  },
+  {
+    text : 'Linking sound (Nối âm)',
+    image: '/assets/linking.png',
+    href: 'https://www.evaeaston.com/'
   }
  ]
 
@@ -90,6 +106,21 @@ bgDangger:string = 'badge bg-danger';
      
      ){}
 
+     formatDate(date:Date) {
+      var d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+  
+      if (month.length < 2) 
+          month = '0' + month;
+      if (day.length < 2) 
+          day = '0' + day;
+  
+      return [year, month, day].join('-');
+  }
+   
+
   ngOnInit(): void {
     console.log('this is data :', this.postService.testData)
      this.GetListData();
@@ -97,11 +128,14 @@ bgDangger:string = 'badge bg-danger';
    .then(() => {
      // Hàm này chỉ chạy khi getReport hoàn thành thành công
      console.log('getReport đã chạy xong. Tiếp tục thực hiện các tác vụ khác ở đây.');
-     this.seriesData = this.report.map(x=>{
+     this.items[0].seriesData = this.report.map(x=>{
        return x.totalWords;
      })
+     this.items[1].seriesData = this.report.map(x=>{
+      return x.fK_UserId
+     })
      this.categories = this.report.map(x=>{
-      return x.created_on.toDateString();
+      return this.formatDate(x.created_on)
      })
      console.log(this.categories)
    })
