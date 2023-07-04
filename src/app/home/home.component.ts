@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { AddpostComponent } from '../addpost/addpost.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { ReportModel } from '../shared/models/report';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,9 +20,14 @@ bgSuccess:string = 'badge bg-success';
 bgDangger:string = 'badge bg-danger';
 
 
-
+// KHai báo Model
   currentRate = 8;
   posts:PostModel[] = [];
+  report:ReportModel[] = [];
+  seriesData:number[] = [];
+  categories:string[] = [];
+
+
  // Dữ liệu để phân trang
  totalCount:number = 0;
  pageIndex:number=0;
@@ -86,7 +92,22 @@ bgDangger:string = 'badge bg-danger';
 
   ngOnInit(): void {
     console.log('this is data :', this.postService.testData)
-   this.GetListData();
+     this.GetListData();
+     this.getReport()
+   .then(() => {
+     // Hàm này chỉ chạy khi getReport hoàn thành thành công
+     console.log('getReport đã chạy xong. Tiếp tục thực hiện các tác vụ khác ở đây.');
+     this.seriesData = this.report.map(x=>{
+       return x.totalWords;
+     })
+     this.categories = this.report.map(x=>{
+      return x.created_on.toDateString();
+     })
+     console.log(this.categories)
+   })
+   .catch((error) => {
+     console.error('Đã xảy ra lỗi trong quá trình chạy getReport:', error);
+   });
   }
  
   getTokenFromLocalStorage(): string | null {
@@ -148,7 +169,7 @@ onSelected(value:any){
  this.type = value;
  this.postService.typeOfpost = this.type
  console.log(this.postService.typeOfpost)
- this.GetListData(); 
+  this.GetListData();
 }
 
 deletePost(id:number){
@@ -183,5 +204,24 @@ getHref(){
   console.log("click parent OK");
 }
 
+getReport() {
+  return new Promise((resolve, reject) => {
+    var dataJson = {
+      startTime: null,
+      endTime: null,
+    };
+    var localToken = this.postService.getTokenFromLocalStorage();
+    const url = 'https://viettienhung.com/QuestionStandard/overview';
+    this.postService.API_Post(url, dataJson, String(localToken)).subscribe(
+      (res: any) => {
+        this.report = res.data;
+        resolve(this.report); // Đánh dấu Promise đã hoàn thành thành công
+      },
+      (error: any) => {
+        reject(error); // Đánh dấu Promise thất bại nếu có lỗi
+      }
+    );
+  });
+}
 
 }
