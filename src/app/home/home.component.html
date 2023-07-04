@@ -7,12 +7,16 @@
 </a>
 
 <div class="container-fluid">
-    <app-chart [items]="items" [categories]="categories"></app-chart>
+    <div class="row">
+        <div class="col-sm-12">
+            <app-chart [items]="items" [categories]="categories"></app-chart>
     <h1 class="text-center mt-1">
         <span class="text-danger">Nguyễn Viết Minh Tiến</span>
         - BIỂU ĐỒ TIẾN ĐỘ HỌC TẬP
     </h1>
     <hr>
+        </div>
+    </div>
 </div>
 
 <div class="container font-weight-bold text-center mt-3">
@@ -29,11 +33,12 @@
 
 <!--Bảng điều khiển-->
 <div class="container">
-
-    <div class="d-flex header_item ">
-        <app-header-item *ngFor="let item of headeritems" [text]="item.text" [imageUrl]="item.image" [href]="item.href"
+   <div class="row">
+            <div class="header_item col-sm-12 col-md-2" *ngFor="let item of headeritems" >
+            <app-header-item [text]="item.text" [imageUrl]="item.image" [href]="item.href"
             (newItemEvent)="getHref()"></app-header-item>
-    </div>
+            </div>
+   </div>
 
     <div class="row d-flex justify-content-between p-1 mt-3">
 
