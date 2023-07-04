@@ -1,0 +1,18 @@
+<kendo-chart>
+    <kendo-chart-title align="left" text="TIẾN ĐỘ HỌC TẬP"></kendo-chart-title>
+    <kendo-chart-category-axis>
+      <kendo-chart-category-axis-item [categories]="categories">
+      </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+    <kendo-chart-series>
+      <kendo-chart-series-item color="#333" [spacing] ="100" [width]="200" [data]="seriesData"> </kendo-chart-series-item>
+    
+      <kendo-chart-series-item
+      color="#db6900"
+      type="line"
+      [data]="seriesData"
+      
+    >
+    </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>

@@ -12,10 +12,11 @@
 
 <!--Bảng điều khiển-->
 <div class="container">
+  
     <div class="d-flex header_item ">
         <app-header-item *ngFor="let item of headeritems" [text]="item.text" [imageUrl]="item.image" [href]="item.href" (newItemEvent)="getHref()"></app-header-item>
     </div>
-
+    <app-chart></app-chart>
     <div class="row d-flex justify-content-between p-1 mt-3">
 
           <!-- PHẦN THANH CHỌN LOẠI KHÓA BÀI VIẾT -->

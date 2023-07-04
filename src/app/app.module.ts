@@ -37,6 +37,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeadertopComponent } from './components/headertop/headertop.component';
 import { HeaderItemComponent } from './components/header-item/header-item.component';
 import { FlashcardComponent } from './flashcard/flashcard.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+import { ChartComponent } from './components/chart/chart.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +65,7 @@ import { FlashcardComponent } from './flashcard/flashcard.component';
     HeadertopComponent,
     HeaderItemComponent,
     FlashcardComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +92,8 @@ import { FlashcardComponent } from './flashcard/flashcard.component';
     NgbModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ChartsModule
     // NgxLoadingModule.forRoot({
     //   animationType: ngxLoadingAnimationTypes.wanderingCubes,
     //   backdropBackgroundColour: 'rgba(0,0,0,0.1)',
