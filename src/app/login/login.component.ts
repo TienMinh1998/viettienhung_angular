@@ -16,9 +16,6 @@ export class LoginComponent {
   constructor(private authService:AuthService, private router:Router){}
   login() {
     // Use the username and password values as needed
-    console.log('Username:', this.userName);
-    console.log('Password:', this.passWord);
-
     var dataJson = {
       userName : this.userName,
       password : this.passWord

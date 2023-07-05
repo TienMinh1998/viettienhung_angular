@@ -6,18 +6,7 @@
     </div>
 </a>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <app-chart [items]="items" [categories]="categories"></app-chart>
-    <h1 class="text-center mt-1">
-        <span class="text-danger">Nguyễn Viết Minh Tiến</span>
-        - BIỂU ĐỒ TIẾN ĐỘ HỌC TẬP
-    </h1>
-    <hr>
-        </div>
-    </div>
-</div>
+
 
 <div class="container font-weight-bold text-center mt-3">
     <div class="d-flex justify-content-center">
@@ -33,12 +22,13 @@
 
 <!--Bảng điều khiển-->
 <div class="container">
-   <div class="row">
-            <div class="header_item col-sm-12 col-md-2" *ngFor="let item of headeritems" >
+   <div class="row d-flex justify-content-center">
+            <div class="header_item col-sm-6 col-md-4 col-lg-1" *ngFor="let item of headeritems" >
             <app-header-item [text]="item.text" [imageUrl]="item.image" [href]="item.href"
             (newItemEvent)="getHref()"></app-header-item>
             </div>
    </div>
+   <hr>
 
     <div class="row d-flex justify-content-between p-1 mt-3">
 
@@ -54,7 +44,7 @@
         </div>
 
         <!-- PHẦN NÚT-->
-        <div class="col-sm-12 col-md-6 d-flex justify-content-end">
+        <div class="col-sm-6 col-md-4 d-flex justify-content-end">
             <button class="vth-button" (click)="openFormChild($event)">Thêm bài viết</button>
         </div>
     </div>
@@ -99,4 +89,18 @@
 <div class="container d-flex justify-content-center">
     <ngb-pagination [collectionSize]="this.totalCount" [(page)]="pageIndex" [boundaryLinks]="true" [pageSize]="pageSize"
         (pageChange)="changePage()"></ngb-pagination>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <app-chart [items]="items" [categories]="categories"></app-chart>
+    <h1 class="text-center mt-1">
+        <span class="text-danger">Nguyễn Viết Minh Tiến</span>
+        - BIỂU ĐỒ TIẾN ĐỘ HỌC TẬP
+    </h1>
+    <hr>
+        </div>
+    </div>
 </div>
