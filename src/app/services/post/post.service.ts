@@ -17,7 +17,6 @@ export class PostService {
   // các phương thức khác
 
  
-  
   GetList():Observable<any> {
     return this.http.get<any>('https://jsonplaceholder.typicode.com/posts')
   }
@@ -89,6 +88,16 @@ export class PostService {
   }
   
   API_get(url:string,token:string):Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<any>(url,{headers})
+  }
+  
+  Get_URL(url:string):Observable<any> {
+    const token = String(this.getTokenFromLocalStorage());
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`

@@ -40,6 +40,9 @@ import { FlashcardComponent } from './flashcard/flashcard.component';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import { ChartComponent } from './components/chart/chart.component';
+import { NewsComponent } from './news/news.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNewsComponent } from './components/admin-news/admin-news.component';
 
 
 @NgModule({
@@ -66,6 +69,9 @@ import { ChartComponent } from './components/chart/chart.component';
     HeaderItemComponent,
     FlashcardComponent,
     ChartComponent,
+    NewsComponent,
+    AdminComponent,
+    AdminNewsComponent,
   ],
   imports: [
     BrowserModule,
