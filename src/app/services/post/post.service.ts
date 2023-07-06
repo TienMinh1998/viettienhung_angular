@@ -8,7 +8,7 @@ import {API_BASE_URL, KEY_TOKEN} from 'src/app/config/apiConfig'
 })
 export class PostService {
  testData:string= 'my data default'
- typeOfpost:String | null='';
+ typeOfpost:String | null= '0';
 
   constructor(
     private http:HttpClient
