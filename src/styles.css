@@ -22,3 +22,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body{
     background-color: #f2f0eb;
 }
+
+
+@font-face {
+    font-family: 'NVNLanderGrande';
+    src: url('./assets/fonts/chaomung2.woff2');
+  }
+  @font-face {
+    font-family: 'NVNLanderGrande1';
+    src: url('./assets/fonts/chaomung.woff2');
+  }
+
+  @font-face {
+    font-family: 'vth-regular';
+    src: url('./assets/fonts/chaomung4.woff2');
+  }
+
+
+  @font-face {
+    font-family: 'NVNPike';
+    src: url('./assets/fonts/chaomung3.woff2');
+  }
