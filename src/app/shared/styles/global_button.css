@@ -33,3 +33,15 @@
 .vth-d-flex{
     display: flex;
 }
+
+.font-18{
+    font-size: 18px;
+}
+
+.font-16{
+    font-size: 16px;
+}
+
+.color-white{
+    color: white;
+}
