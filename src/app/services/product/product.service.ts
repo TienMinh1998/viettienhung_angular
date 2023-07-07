@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { ProductModel } from 'src/app/shared/models/product';
+import { API_BASE_URL } from 'src/app/config/apiConfig';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,10 @@ GetAll(): Promise<ProductModel[]> {
       }
     );
   });
+}
+//---------
+
+DeleteProduct(id:number){
+  this._apiService.Delete(`${API_BASE_URL}/product/${id}`);
 }
 }

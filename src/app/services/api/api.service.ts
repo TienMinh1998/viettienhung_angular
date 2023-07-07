@@ -68,4 +68,26 @@ PUT(url: string, data: any, token: string) {
   });
 }
 // ------------------------------------------------------------------------------------------
+
+Delete(url: string) {
+  const token = String(this.getTokenFromLocalStorage());
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  });
+
+  return new Promise((resolve, reject) => {
+    this.http.delete(url, { headers })
+      .subscribe(
+        response => {
+          resolve(response); // Return the response JSON
+        },
+        error => {
+          reject(error);
+        }
+      );
+  });
+}
+
+
 }

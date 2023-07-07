@@ -16,7 +16,7 @@
                   <p class="card-text textDescription">{{item.description}}</p>
                   <p class="card-text font-weight-bold">${{item.price | number}} VNĐ</p>
                   <a class="vth-button">chi tiết</a>
-                  <a class="vth-button">Xóa</a>
+                  <button class="vth-button" (click)="DeleteProduct(item.id)">Xóa</button>
                 </div>
               </div>
         </div>

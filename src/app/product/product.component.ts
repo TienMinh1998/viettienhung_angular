@@ -4,6 +4,7 @@ import { ProductService } from '../services/product/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddvocabularyComponent } from '../words/addvocabulary/addvocabulary.component';
+import { API_BASE_URL } from '../config/apiConfig';
 
 
 @Component({
@@ -39,5 +40,10 @@ export class ProductComponent implements OnInit  {
   
   showMessage(){
     console.log('Test')
+  }
+
+  DeleteProduct(id:number){
+    console.log(id);
+    this._productService.DeleteProduct(id);
   }
 }
