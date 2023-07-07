@@ -18,8 +18,7 @@ ul{
 }
 
 ul li:hover{
-    background-color:red;
-    font-weight: bold;
+    background-color: #ddd;
 }
 
 .icon{
@@ -28,12 +27,11 @@ ul li:hover{
 a{
     color: black;
 }
-a:hover{
-    color: beige;
-    font-weight: bold;
-}
 
 .right{
     position: relative;
     right: 0px;
+}
+li:hover{
+    cursor: pointer;
 }

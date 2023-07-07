@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { Route, Router } from '@angular/router';
-import { KEY_TOKEN } from '../config/apiConfig';
+import { KEY_TOKEN, LOGIN_STATUS, USER_NAME } from '../config/apiConfig';
+import { DataService } from '../services/data/data.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { KEY_TOKEN } from '../config/apiConfig';
 export class LoginComponent {
   userName =''
   passWord =''
-  constructor(private authService:AuthService, private router:Router){}
+  constructor(private authService:AuthService, private router:Router, public data:DataService){}
   login() {
     // Use the username and password values as needed
     var dataJson = {
@@ -23,10 +24,15 @@ export class LoginComponent {
     this.authService.Login(dataJson).subscribe(res=>{
       var status = res.status;
       var token = res.data.token;
+      var name = res.data.user.name;
+
+      console.log(res);
       if (status==200) {
           // save data to local store
           localStorage.setItem(`${KEY_TOKEN}`,token);
-          console.log("save token success");
+          localStorage.setItem(`${LOGIN_STATUS}`,"true");
+          localStorage.setItem(`${USER_NAME}`,name);
+
           this.router.navigate(["/"]);
       } else {
         console.log("Sai tên tài khoản hoặc mật khẩu.")
@@ -34,4 +40,11 @@ export class LoginComponent {
     })
   }
  
+ async Success() {
+    await this.data.ChangeLoginStatus(true)
+  }
+
+  
+
+
 }

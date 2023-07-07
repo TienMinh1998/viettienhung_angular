@@ -11,10 +11,20 @@
         </div>
     
         <ul class="col-sm-12 col-md-6 right d-flex justify-content-end">
-            <li>
-                <i class="ti-user left-icon icon"></i><a routerLink="/login">
-                    Login
+            <li *ngIf="!loginStatus">
+                <i  class="ti-user left-icon icon"></i><a routerLink="/login">
+                    Đăng nhập
                 </a>
+            </li>
+
+            <li *ngIf="loginStatus">
+            Xin chào: Nguyễn Viết Minh Tiến </li> 
+            <li *ngIf="loginStatus">
+                <a href='' (click)="logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+
             </li>
             <li>
                 <i class="ti-heart left-icon icon"></i><a>Register</a>

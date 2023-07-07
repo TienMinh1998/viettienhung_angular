@@ -3,3 +3,6 @@ export const KEY_TOKEN = "token";
 export const BANNER_IMAGE1 = '/assets/ronaldo_banner.jpg';
 export const BANNER_IMAGE2 = '/assets/ronaldo_banner.jpg';
 export const BANNER_IMAGE3 = '/assets/ronaldo_banner.jpg';
+export const LOGIN_STATUS = 'loginStatus';
+export const USER_NAME = '';
+
