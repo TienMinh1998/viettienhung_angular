@@ -1,0 +1,45 @@
+
+<div class="card-body">
+    <form [formGroup]="reactiveForm" (ngSubmit)="AddPost()">
+        <div class="title"> Thêm mới sản phẩm</div>
+        <div class="d-flex justify-content-center">
+            <div id="image_border" class="">
+                <img id="image" width="100%" height="100%" id="blah" [src]="imagePreview || 'http://placehold.it/180'" alt="Post Image" />
+                <input style="display: none;" #fileInput type="file" class="file-upload" formControlName="file" (change)="onChangeFile($event)">
+                <button id="btn_upload" mat-mini-fab color="primary" (click)="choseFilebtn()" aria-label="Example icon button with a menu icon">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                  </button>
+            </div>
+        </div>
+       
+        
+        <br>
+        <label>Tên sản phẩm (<span class="text-danger">*</span>): </label>
+        <input type="text" formControlName="productname"  placeholder="Nhập tên sản phẩm">
+        <span class="text-danger" *ngIf="name && name.invalid && name.touched">Nhập tiêu đề của bài viết!</span>
+        <br>
+
+        <label>Mô tả sản phẩm(</label>
+        <span class="text-danger">*</span>):
+        <input type="text" formControlName="productdescription" placeholder="Nhập mô tả sản phẩm">
+        <span class="text-danger" *ngIf="description && description.invalid && description.touched">Bạn phải nhập mô tả cho sản phẩm!</span>
+        <br>
+         
+        <label>Giá của sản phẩm(</label>
+        <span class="text-danger">*</span>):
+        <input type="text" formControlName="price" placeholder="Enter english meaning...">
+        <span class="text-danger" *ngIf="price && price.invalid && price.touched">Bạn phải nhập giá của sản phẩm!</span>
+        <br>
+    
+       <div  class="form-group">
+        <button 
+        [disabled]="reactiveForm.invalid"
+        type="submit"
+        mat-raised-button color="primary">
+            <i class="fa-regular fa-square-plus"></i>
+            Thêm sản phẩm</button> 
+       </div>
+    </form>
+    
+</div>
+

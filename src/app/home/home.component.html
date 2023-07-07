@@ -34,15 +34,17 @@
     <div class="row d-flex justify-content-between p-1 mt-3">
 
         <!-- PHẦN THANH CHỌN LOẠI KHÓA BÀI VIẾT -->
-
-        <div class="col-sm-12 col-md-3">
-            <select #mySelect class="form-select form-select-sm" aria-label=".form-select-sm example"
-                (change)="onSelected(mySelect.value)">
-                <option *ngFor="let opt of options; let i= index;" [value]="i">
-                    {{opt}}
-                </option>
-            </select>
+        <div class="col-sm-6 ">
+            <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-success" id="dropdownBasic1" ngbDropdownToggle>
+                    {{currentTypeName}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button *ngFor="let opt of options; let i= index;" [value]="i" ngbDropdownItem (click)="getType(i)">{{opt}}</button>
+                </div>
+            </div>
         </div>
+
 
         <!-- PHẦN NÚT-->
         <div class="col-sm-6 col-md-4 d-flex justify-content-end">

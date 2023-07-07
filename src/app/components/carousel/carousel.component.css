@@ -1,8 +1,8 @@
 .title{
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     font-weight: bold;
     color: white;    
-    font-size: 14px;
+    font-size: 18px;
     opacity: 0.95;
     font-family: NVNPike;
     letter-spacing: 2px;
@@ -11,7 +11,7 @@
 .title-content{
     font-weight: bold;
     color: white;    
-    font-size: 30px;
+    font-size: 40px;
     font-family: NVNLanderGrande;
     letter-spacing: 2px;
 }
@@ -25,7 +25,7 @@
     position: relative;
 }
 .sub-title{
-    margin-top: 10px;
+    margin-top: 20px;
     color: white;
     font-family: vth-regular;
     font-weight: 200;

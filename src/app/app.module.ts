@@ -43,6 +43,9 @@ import { ChartComponent } from './components/chart/chart.component';
 import { NewsComponent } from './news/news.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNewsComponent } from './components/admin-news/admin-news.component';
+import { ProductComponent } from './product/product.component';
+import { AddproductComponent } from './product/addproduct/addproduct.component';
+import { ProductonmainComponent } from './product/productonmain/productonmain.component';
 
 
 @NgModule({
@@ -72,6 +75,9 @@ import { AdminNewsComponent } from './components/admin-news/admin-news.component
     NewsComponent,
     AdminComponent,
     AdminNewsComponent,
+    ProductComponent,
+    AddproductComponent,
+    ProductonmainComponent,
   ],
   imports: [
     BrowserModule,

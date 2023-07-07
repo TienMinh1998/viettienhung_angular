@@ -1,0 +1,31 @@
+.textDescription{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+.old-price{
+    text-decoration-line: line-through;
+}
+.new-price{
+    color: red;
+
+}
+.card {
+    /* Các thuộc tính khác cho khung cha */
+  
+
+  }
+  
+  .card .card-img-top:hover {
+    transform: scale(1.2);
+    transition: transform 0.7s ease;
+    opacity: 0.8;
+  }
+
+  .warap-image{
+    height: 200px;
+    overflow: hidden;
+  }

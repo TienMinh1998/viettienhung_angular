@@ -46,6 +46,7 @@ bgDangger:string = 'badge bg-danger';
  todayNum:number=0;
  todayNumCopy:number=0;
  options:string[] = ['Tất cả','writing','General', 'Vocabulary','Grammar','listening','Speaking','Tech (IT)']
+ currentTypeName = 'Tất cả'
  headeritems = [
   {
     text : 'Dictionary (Từ điển)',
@@ -128,16 +129,13 @@ bgDangger:string = 'badge bg-danger';
 
   ngOnInit(): void {
     console.log('this is data :', this.postService.testData)
-     this.GetListData();
      this.getReport()
    .then(() => {
-     // Hàm này chỉ chạy khi getReport hoàn thành thành công
-     console.log('getReport đã chạy xong. Tiếp tục thực hiện các tác vụ khác ở đây.');
      this.items[0].seriesData = this.report.map(x=>{
        return x.totalWords;
      })
      this.items[1].seriesData = this.report.map(x=>{
-      return x.fK_UserId
+      return x.totalPosts;
      })
      this.categories = this.report.map(x=>{
       return this.formatDate(x.created_on)
@@ -200,16 +198,17 @@ bgDangger:string = 'badge bg-danger';
    KHông cần quan tâm đến các việc bên trong nó làm
 */
 changePage(){
-  
   this.GetListData();
 }
 
-onSelected(value:any){
- this.type = value;
- this.postService.typeOfpost = this.type
- console.log(this.postService.typeOfpost)
-  this.GetListData();
-}
+
+getType(index:number){
+  this.type = String(index);
+  this.postService.typeOfpost = this.type
+   this.GetListData();
+   // cập nhật lại tên của type;
+   this.currentTypeName = this.options[index]; 
+ }
 
 deletePost(id:number){
   console.log('begin call api')
@@ -231,40 +230,9 @@ deletePost(id:number){
   });
 }
 
-
-
-
-// deletePost(id:number){
-//   console.log('OK')
-//   const url = `${API_BASE_URL}/reading/${id}`
-//   this.postService.API_Delete(url).subscribe((res:any)=>{
-//     console.log(res);
-//     if (res.status==401){
-//       this.toastr.error("Bạn chưa được cấp quyền xóa bài viết","Thông báo");
-//     }
-//     if (res.status==200) {
-//       // xóa dưới fontend và không cần động đến backend
-//       const index = this.posts.findIndex((x)=>x.id==id);
-//       if (index!=-1){
-//         this.posts.splice(index,1);
-//       }
-
-//       this.toastr.success('Xóa thành công', 'Thông báo');
-      
-//     } else {
-//       debugger
-//       this.toastr.error('Xóa thất bại','Thông báo')
-//     }
-//   });
-// }
-
-
-
-
 showData(){
   console.log("Home log",this.postService.testData);
 }
-
 
 getHref(){
   console.log("click parent OK");

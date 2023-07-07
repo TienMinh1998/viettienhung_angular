@@ -11,6 +11,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNewsComponent } from './components/admin-news/admin-news.component';
 import { NewsComponent } from './news/news.component';
 import { News } from './shared/models/news';
+import { ProductComponent } from './product/product.component';
+import { ProductonmainComponent } from './product/productonmain/productonmain.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,7 @@ const routes: Routes = [
     path: '', 
     component: MainComponent,
       children: [
-        { path: '', component: HomeComponent }
+        { path: '', component: ProductonmainComponent }
       ]
   },
   {
@@ -35,10 +37,12 @@ const routes: Routes = [
   {path:"flashcard", component:FlashcardComponent},
   {path:"admin", component:AdminComponent,
   children: [
-    { path: 'news', component: NewsComponent }
+    { path: 'news', component: NewsComponent },
+    { path: 'product', component: ProductComponent }
   ]
 },
- {path:"news", component:NewsComponent}
+ {path:"news", component:NewsComponent},
+ {path:"product", component:ProductComponent}
 ];
 
 @NgModule({

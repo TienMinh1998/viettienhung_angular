@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row mt-1">
+        <h2>SẢN PHẨM CAFFE NỔI BẬT</h2>
+    </div>
+    <div class="row">
+        <div  *ngFor="let item of products"  class="col-sm-6 col-md-4 col-lg-3" >
+            <div class="card m-1">
+                <div class="warap-image">
+                    <img class="card-img-top"  height="200px" src={{item.imageUrl}} alt="Card image cap">
+                </div>
+              
+                <div class="card-body">
+                  <h2 class="card-title">{{item.name}}</h2>
+                  <p class="card-text textDescription">{{item.description}}</p>
+                  <p class="card-text font-weight-bold old-price">${{item.price | number}} VNĐ</p>
+                  <p class="card-text font-weight-bold new-price">$1000 VNĐ</p>
+                  <a class="vth-button">chi tiết</a>
+                  <a class="vth-button">Liên hệ mua hàng</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
