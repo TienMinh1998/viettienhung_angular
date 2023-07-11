@@ -20,7 +20,7 @@ const routes: Routes = [
     path: '', 
     component: MainComponent,
       children: [
-        { path: '', component: ProductonmainComponent }
+        { path: '', component: HomeComponent }
       ]
   },
   {
